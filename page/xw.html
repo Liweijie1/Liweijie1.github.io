@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="../css/header.css">
+<link rel="stylesheet" href="../css/footer.css">
+<link rel="stylesheet" href="../css/xw.css">
+<style>
+    body {
+        background: #f0f0f0
+    }
+
+    .box2 {
+        width: 1240px;
+        margin: auto;
+    }
+
+    /* 标题 */
+    .box2 .bt {
+        margin-top: 38px;
+        list-style-type: none;
+    }
+
+    .box2 .bt li {
+        width: 155px;
+        height: 36px;
+        line-height: 36px;
+        background-color: rgba(57, 59, 64, 0.18);
+        color: #393b40;
+        border-radius: 4px;
+        text-align: center;
+        margin-right: 20px;
+        display: inline-block;
+    }
+
+    .box2 .bt li:hover {
+        background-color: #393b40;
+        color: #f4d8a8;
+    }
+
+    .box2 .news {
+        width: 1240px;
+        margin-top: 38px;
+        list-style-type: none;
+    }
+
+    .box2 .item {
+        width: 1240px;
+        background-color: #fafafa;
+        margin-bottom: 10px;
+        border-radius: 4px;
+        padding: 15px 20px;
+        position: relative;
+    }
+
+    .box2 img {
+        width: 265px;
+        height: 140px;
+        margin-right: 20px;
+    }
+
+    .box2 .r {
+        width: 955px;
+        height: 140px;
+        float: right;
+    }
+
+    .box2 h3 {
+        width: 955px;
+        height: 32px;
+        font-size: 24px;
+        font-weight: 400;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    /* 文字 */
+    .box2 .wz {
+        width: 300px;
+        padding: 0 20px;
+        position: absolute;
+        bottom: 16px;
+        right: 0;
+        z-index: 1;
+        display: flex;
+        justify-content: flex-end;
+        box-sizing: border-box;
+    }
+
+    .box2 .wz1 {
+        color: #999
+    }
+
+    .box2 .wz2 {
+        color: #ffc000;
+        margin-left: 56px;
+    }
+
+    /* 加载更多 */
+    .box2 .jzgd {
+        width: 1280px;
+        height: 40px;
+        line-height: 40px;
+        background-color: #393b40;
+        border-radius: 4px;
+        text-align: center;
+        font-size: 18px;
+        color: #fff;
+        margin-top: 40px;
+    }
+
+    .box2 .jzgd:hover {
+        background-color: #565961;
+    }
+
+    .box3{
+        width: 100%;
+        height: 52px;
+        line-height: 52px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #111;
+        border-bottom: #1a1a1a solid 2px;
+        margin-top: 100px;
+    }
+
+    .box3 img {
+        width: 32px;
+        height: 32px;
+        float: left;
+        margin-right: 34px;
+        opacity: 0.4;
+    }
+    .box3 img:hover{
+        opacity: 1;
+    }
+</style>
+
+<body>
+    <header>
+        <div class="l">
+            <img class="yy" src="../img/header/yy1.png" alt="">
+            <img src="../img/header/ys.png" alt="">
+        </div>
+        <nav>
+            <div class="wz">                
+                <a href="./gw.html">
+                    首页
+                </a>                
+            </div>
+            <div class="wz gg">                
+                <a href="./xw.html">
+                    新闻
+                </a>
+            </div>
+            <div class="wz">角色
+                <ul class="child-list">
+                    <li>蒙德角色</li>
+                    <li>璃月角色</li>
+                    <li>稻妻角色</li>
+                    <li>须弥角色</li>
+              </ul>
+            </div>
+            <div class="wz">世界
+                <ul class="child-list">
+                    <li>蒙德</li>
+                    <li>璃月</li>
+                    <li>稻妻</li>
+                    <li>须弥</li>
+              </ul>
+            </div>
+            <div class="wz">漫画
+                <ul class="child-list">
+                    <li>蒙德漫画</li>
+                    <li>璃月漫画</li>
+                    <li>稻妻漫画</li>
+                    <li>须弥漫画</li>
+              </ul>
+            </div>
+            <div class="wz">社区
+                <ul class="child-list">
+                    <li>蒙德社区</li>
+                    <li>璃月社区</li>
+                    <li>稻妻社区</li>
+                    <li>须弥社区</li>
+              </ul>
+            </div>
+            <div class="wz">赛事
+                <ul class="child-list">
+                    <li>蒙德赛事</li>
+                    <li>璃月赛事</li>
+                    <li>稻妻赛事</li>
+                    <li>须弥赛事</li>
+              </ul>
+            </div>
+            <div class="xhx"></div>
+        </nav>
+        <div class="r">
+            <span>关爱成长系统</span>
+            <img src="../img/header/ax.png" alt="">
+            <span>登录</span>
+            <img src="../img/header/tx.png" alt="">
+        </div>
+    </header>
+    <main>
+        <section class="box1">
+            <div class="b1">
+                <div class="img-box">
+                    <img src="../img/xw/tp1.jpg" alt="">
+                </div>
+                <div class="bt">
+                    《原神》「神铸赋形」活动祈愿现已开启：「单手剑·裁叶萃光」「单手…
+                </div>
+                <div class="wz">
+                    <span class="wz1">2023/06/13</span>
+                    <span class="wz2">新闻</span>
+                </div>
+            </div>
+            <div class="b2">
+                <div class="img-box">
+                    <img src="../img/xw/tp2.jpg" alt="">
+                </div>
+                <div class="bt">
+                    《原神》「叶落风随」祈愿活动祈愿现已开启
+                </div>
+                <div class="wz">
+                    <span class="wz1">2023/06/13</span>
+                    <span class="wz2">新闻</span>
+                </div>
+            </div>
+            <div class="b3">
+                <div class="img-box">
+                    <img src="../img/xw/tp3.jpg" alt="">
+                </div>
+                <div class="bt">
+                    《原神》「敕诫枢谋」祈愿活动祈愿现已开启
+                </div>
+                <div class="wz">
+                    <span class="wz1">2023/06/13</span>
+                    <span class="wz2">新闻</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <section class="box2">
+        <!-- 标题  -->
+        <ul class="bt">
+            <li>最新</li>
+            <li>新闻</li>
+            <li>公告</li>
+            <li>活动</li>
+        </ul>
+        <!-- 新闻 -->
+        <ul class="news">
+            <li class="item">
+                <img src="../img/xw/tp1.jpg">
+                <div class="r">
+                    <h3>《原神》「神铸赋形」活动祈愿现已开启：「单手剑·裁叶萃光」「单手剑·苍古自由之誓」概率UP！</h3>
+                </div>
+                <div class="wz">
+                    <div class="wz1">
+                        2023/06/13
+                    </div>
+                    <div class="wz2">
+                        新闻
+                    </div>
+                </div>
+            </li>
+            <li class="item">
+                <img src="../img/xw/tp2.jpg">
+                <div class="r">
+                    <h3>《原神》「叶落风随」祈愿活动祈愿现已开启</h3>
+                </div>
+                <div class="wz">
+                    <div class="wz1">
+                        2023/06/13
+                    </div>
+                    <div class="wz2">
+                        新闻
+                    </div>
+                </div>
+            </li>
+            <li class="item">
+                <img src="../img/xw/tp3.jpg">
+                <div class="r">
+                    <h3>《原神》「敕诫枢谋」祈愿活动祈愿现已开启</h3>
+                </div>
+                <div class="wz">
+                    <div class="wz1">
+                        2023/06/13
+                    </div>
+                    <div class="wz2">
+                        新闻
+                    </div>
+                </div>
+            </li>
+            <li class="item">
+                <img src="../img/xw/tp4.jpg">
+                <div class="r">
+                    <h3>《原神》「神铸赋形」活动祈愿现已开启：「单手剑·裁叶萃光」「单手剑·苍古自由之誓」概率UP！</h3>
+                </div>
+                <div class="wz">
+                    <div class="wz1">
+                        2023/06/13
+                    </div>
+                    <div class="wz2">
+                        新闻
+                    </div>
+                </div>
+            </li>
+            <li class="item">
+                <img src="../img/xw/tp5.jpg">
+                <div class="r">
+                    <h3>《原神》「华紫樱绯」祈愿活动祈愿现已开启</h3>
+                </div>
+                <div class="wz">
+                    <div class="wz1">
+                        2023/06/13
+                    </div>
+                    <div class="wz2">
+                        新闻
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="jzgd">加载更多</div>
+        <!-- 底部图片 -->
+        
+    </section>
+    <section class="box3">
+        <!-- <div> -->
+            <img src="../img/xw/d1.png">
+            <img src="../img/xw/d2.png">
+            <img src="../img/xw/d3.png">
+            <img src="../img/xw/d4.png">
+        <!-- </div> -->
+    </section>
+    <footer>
+        <div class="left">
+            <img class="mhy" src="../img/footer/mhy.png">
+            <span class="s"></span>
+            <img class="ys" src="../img/footer/ys.png">
+        </div>
+        <div class="right">
+            <p>
+                用户协议<span class="s2"></span>
+                隐私政策<span class="s2"></span>
+                儿童隐私政策<span class="s2"></span>
+                自律公约<span class="s2"></span>
+                成长关爱<span class="s2"></span>
+                关于我们联系<span class="s2"></span>
+                我们加入我们
+            </p>
+            <span class="wz">
+                健康游戏忠告:抵制不良游戏，拒绝盗版游戏。注意自我保护，谨防受骗上当。适度游戏益脑，沉迷游戏伤身。合理安排时间，享受健康生活<br>
+                沪公网安备31010402001113号增值电信业务经营许可证: 沪B2-20190555 <br>
+                沪ICP备19018275号-4网文(2022] 1334-052号国新出审2019]2978号 <br>
+                互联网违法不良信息举报邮箱: tousu@service.mihoyo.com 互联网违法不良信息举报电话:021-60371750 (工作时间: 每天10点-20点) <br>
+                亲爱的市民朋友，上海警方反诈劝阻电话“962110”系专门针对游免您财产被骗受损而设，请您一旦收到来电，立即接听 <br>
+                未成年成长关爱热线:021-60371740 (服务时间: 8:00-23:00) <br>
+                2020米哈游版权所有]上海米哈游影铁科技有限公司客服电话:400-666-6312
+            </span>
+            <div class="tp">
+                <img src="../img/footer/tp1.png">
+                <img src="../img/footer/tp2.png">
+                <img src="../img/footer/tp3.png">
+                <img src="../img/footer/tp4.png">
+                <img src="../img/footer/tp5.png">
+                <img src="../img/footer/tp6.png">
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
+<script src="../js/jquery.js"></script>
+<script src="../js/header.js"></script>
