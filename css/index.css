@@ -45,14 +45,19 @@ section {
     background: url(../img/index/bj4.webp) no-repeat center;
     background-size: cover;
 }
-
+.box1 .container{
+    width: 1400px;
+    height: 100%;
+    margin: auto;
+    position: relative;
+}
 /* 原神 */
 .box1 .ys {
     width: 130px;
     height: 100px;
     position: absolute;
     top: 15px;
-    left: 205px;
+    left: 105px;
 }
 
 .box1 .ys img {
@@ -78,7 +83,7 @@ section {
     height: 38px;
     position: absolute;
     top: 20px;
-    right: 190px;
+    right: 90px;
 }
 
 .box1 .jrgw img {
@@ -104,7 +109,7 @@ section {
     height: 156px;
     position: absolute;
     bottom: 117px;
-    left: 389px;
+    left: 289px;
 }
 
 /* 播放视频 */
@@ -113,7 +118,7 @@ section {
     height: 59px;
     position: absolute;
     bottom: 100px;
-    left: 855px;
+    left: 755px;
     z-index: 20;
 }
 
@@ -165,7 +170,7 @@ section {
     height: 38px;
     position: absolute;
     bottom: 50px;
-    left: 550px;
+    left: 450px;
 }
 
 .box1 .pcxz img {
@@ -190,7 +195,7 @@ section {
     height: 38px;
     position: absolute;
     bottom: 50px;
-    left: 760px;
+    left: 660px;
 }
 
 .box1 .yysxz img {
@@ -216,9 +221,15 @@ section {
     height: 90px;
     position: absolute;
     bottom: 50px;
-    left: 205px;
+    left: 105px;
 }
 
+.box2 .container{
+    width: 1400px;
+    height: 100%;
+    margin: auto;
+    position: relative;
+}
 
 /* 诸景巡礼 */
 .box2 .zjxl {
@@ -226,7 +237,7 @@ section {
     height: 295px;
     position: absolute;
     top: 208px;
-    left: 379px;
+    left: 279px;
 }
 
 .box2 .zjxl img {
@@ -251,7 +262,7 @@ section {
     height: 295px;
     position: absolute;
     top: 223px;
-    left: 578px;
+    left: 478px;
 }
 
 .box2 .lszh img {
@@ -276,7 +287,7 @@ section {
     height: 295px;
     position: absolute;
     top: 208px;
-    left: 778px;
+    left: 678px;
 }
 
 .box2 .hdxh img {
@@ -301,7 +312,7 @@ section {
     height: 295px;
     position: absolute;
     top: 223px;
-    left: 998px;
+    left: 898px;
 }
 
 .box2 .mtzf img {
@@ -326,7 +337,7 @@ section {
     height: 38px;
     position: absolute;
     bottom: 69px;
-    left: 662px;
+    left: 562px;
 }
 
 .box2 .ljgdkpxx img {
@@ -350,10 +361,23 @@ section {
 .box3 .bj{
     width: 100%;
     height: 100%;
-    background: url(../img/index/bcszbj.webp) center center/cover;
+    background: url(../img/index/bcszbj.webp) center 100%/100% no-repeat; 
     position: relative;
     top: 0;
     left: 0;
+    z-index: 1;
+}
+.box3 .container{
+    width: 1400px;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    top: -100%;
+    left: 0;
+    z-index: 2;
 }
 /* 介绍 */
 .box3 .js{
@@ -362,7 +386,7 @@ section {
     background: url(../img/index/bcjs.webp) center center/cover;
     position: absolute;
     top: 180px;
-    left: 335px;
+    left: 235px;
 }
 /* 播放 */
 .box3 .bf{
@@ -371,7 +395,7 @@ section {
     background: url(../img/index/bf1.webp) center center/cover;
     position: absolute;
     top: 163px;
-    right: 452px;
+    right: 352px;
 }
 .box3 .bf:hover{
     background: url(../img/index/bf2.webp) center center/cover;
@@ -383,7 +407,7 @@ section {
     background: url(../img/index/bcpy11.webp) center center/cover;
     position: absolute;
     top: 480px;
-    left: 335px;
+    left: 235px;
 }
 .box3 .py21{
     width: 220px;
@@ -391,7 +415,7 @@ section {
     background: url(../img/index/bcpy21.webp) center center/cover;
     position: absolute;
     top: 555px;
-    left: 335px;
+    left: 235px;
 }
 
 /* 头像 */
@@ -400,7 +424,7 @@ section {
     height: 391px;
     position: absolute;
     top: 133px;
-    right: 320px;
+    right: 220px;
 }
 /* 向上 */
 .box3 .tx .xs{
