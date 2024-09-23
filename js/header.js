@@ -20,7 +20,7 @@ $("header .wz").mouseleave(function(){
 
 // 高光特效
 $("header .wz").click(function(){
-    $(this).toggleClass("gg").siblings().removeClass("gg")
+    $(this).addClass("gg").siblings().removeClass("gg")
 })
 
 // 二级列表上拉下拉特效
