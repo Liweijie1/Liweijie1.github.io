@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <title>仿蜜雪冰城首页</title>
   <link rel="stylesheet" href="../../bootstrap/bootstrap-3.4.1-dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="./swiper.css">
   <link rel="stylesheet" href="./style.css">
 
 </head>
@@ -195,18 +196,24 @@
     </section>
 
     <!-- 三个产品 -->
-    <section class="three-item row">
-      <div class="item col-md-4 col-sm-6 col-xs-12">
-        <div class="title">摇摇奶昔</div>
-        <img src="./img/lb3-1.png" alt="">
-      </div>
-      <div class="item col-md-4 col-sm-6 col-xs-12">
-        <div class="title">冰鲜柠檬水</div>
-        <img src="./img/lb3-2.png" alt="">
-      </div>
-      <div class="item col-md-4 col-sm-6 col-xs-12">
-        <div class="title">新鲜冰淇淋</div>
-        <img src="./img/lb3-3.png" alt="">
+    <section class="three-item swiper-container">
+
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="title">摇摇奶昔</div>
+          <img src="./img/lb3-1.png">
+          <div class="detail">网红产品 摇摇奶昔</div>
+        </div>
+        <div class="swiper-slide">
+          <div class="title">冰鲜柠檬水</div>
+          <img src="./img/lb3-2.png">
+          <div class="detail">口碑产品 冰鲜柠檬水</div>
+        </div>
+        <div class="swiper-slide">
+          <div class="title">新鲜冰淇淋</div>
+          <img src="./img/lb3-3.png">
+          <div class="detail">新鲜冰淇淋</div>
+        </div>
       </div>
     </section>
 
@@ -429,6 +436,7 @@
   </div>
   <script src="../../jq/jQuery.min.js"></script>
   <script src="../../bootstrap/bootstrap-3.4.1-dist/js/bootstrap.min.js"></script>
+  <script src="./swiper.js"></script>
   <script src="./index.js"></script>
 </body>
 

@@ -4,3 +4,15 @@ $(".father-list li").mouseenter(function(){
 }).mouseleave(function(){
   $(this).children(".child-list").stop().slideUp(); // 隐藏子列表，下拉效果
 });
+
+// 三个产品 swiper轮播图插件
+var swiper = new Swiper('.swiper-container', {
+  slidesPerView: 3,
+  spaceBetween: 30,
+  centeredSlides: true,
+  loop: true,
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+});
