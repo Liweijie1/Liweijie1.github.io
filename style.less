@@ -113,6 +113,21 @@ header {
           transform: rotateX(180deg);
         }
       }
+
+      &>li:last-child::before{
+        content: '';
+        width: 1px;
+        height: 30px;
+        display: block;
+        background: #000;
+        position: absolute;
+        top: 25px;
+        left: 0;
+      }
+
+      &>li:last-child:hover{
+        border: 0px solid #000;
+      }
     }
 
 

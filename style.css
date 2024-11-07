@@ -97,6 +97,19 @@ header .center ul.father-list > li:hover {
 header .center ul.father-list > li:hover p {
   transform: rotateX(180deg);
 }
+header .center ul.father-list > li:last-child::before {
+  content: '';
+  width: 1px;
+  height: 30px;
+  display: block;
+  background: #000;
+  position: absolute;
+  top: 25px;
+  left: 0;
+}
+header .center ul.father-list > li:last-child:hover {
+  border: 0px solid #000;
+}
 header .right .jm {
   font-size: 16px;
   color: white;
