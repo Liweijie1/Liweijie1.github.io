@@ -1,0 +1,42 @@
+html,
+body {
+  font-family: 楷体,宋体,瑞美加张清平硬笔行书;
+}
+@font-face {
+  font-family: 瑞美加张清平硬笔行书;
+  src: url(瑞美加张清平硬笔行书.ttf);
+}
+.container {
+  column-gap: 30px;
+  column-rule: 1px solid black;
+}
+@media screen and (min-width: 1200px) {
+  .container {
+    column-count: 3;
+  }
+}
+@media screen and (max-width: 1200px) and (min-width: 600px) {
+  .container {
+    column-count: 2;
+  }
+}
+@media screen and (max-width: 600px) {
+  .container {
+    column-count: 1;
+  }
+}
+.container .item {
+  width: 100%;
+  break-inside: avoid;
+}
+.container .item img {
+  width: 80%;
+  display: block;
+  margin: auto;
+}
+.container .item p {
+  color: #000;
+  text-align: left;
+  text-align: center;
+}
+/*# sourceMappingURL=./index.css.map */

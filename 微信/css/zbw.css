@@ -1,0 +1,12 @@
+.box-top{
+    background-color: white;
+}
+.box-between{
+    height: 90%;
+    display: flex;
+    align-items: center;
+}
+span{
+    font-size: 20px;
+    margin: auto;
+}

@@ -1,0 +1,145 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body,html{
+    width: 100%;
+    height: 100%;
+}
+body{
+    background:url(../imag/xn.jpg) no-repeat;
+    background-size: cover;
+}
+.box{
+    background-color:#ededed;
+}
+.box{
+    max-width: 500px;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    position: relative;
+}
+.box-top{
+    width: 100%;
+    height:10%;
+    display: flex;
+    align-content: center;
+}
+.box-top .l{
+    height: 60%;
+    margin-top: 3%;
+    float: left;
+}
+.box-top .c{
+    width: 70%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+}
+.box-top .c span{
+    font-size: 20px;
+    margin: auto;
+}
+.box-top .r{
+    height: 60%;
+    margin-top: 3%;
+    float: right;
+}
+.box-between{
+    width: 100%;
+    height: 80%;
+    overflow-y:auto;
+    overflow-x: hidden;
+}
+.box-between .content img{
+    margin: 5px;
+    width: 50px;
+}
+.content {
+    font-size: 20px;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 5px;
+
+}
+
+.content li {
+    margin-top: 10px;
+    padding-left: 10px;
+    width: 96%;
+    display: block;
+    clear: both;
+    overflow: hidden;
+}
+
+.content li img {
+    float: left;
+}
+
+.content li span {
+	word-wrap: break-word;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    float: left;
+    margin: 6px 10px 0 10px;
+    max-width: 200px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 3px #ccc;
+}
+
+.content li img.imgleft {
+    float: left;
+}
+
+.content li img.imgright {
+    float: right;
+}
+
+.content li span.spanleft {
+    float: left;
+    background: #fff;
+}
+
+.content li span.spanright {
+    float: right;
+    background: #7cfc00;
+}
+.box-bottom{
+    width: 100%;
+    height: 10%;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+}
+.box-bottom .icon{
+    height: 100%;
+}
+
+.box-bottom img{
+    margin: 30%;
+    height: 60%;
+    border-radius: 8px;
+}
+.box-bottom .sr{
+    margin:0 5%;
+    width: 60%;
+    height: 60%;
+    border-radius: 8px;
+    outline: none;
+    border: 1px solid red;
+}
+.box-bottom .fs{
+    background-color: rgb(48, 188, 48);
+    padding: 2%;
+    border-radius: 10%;
+    outline: none;
+}
+.box-bottom .fs:hover{
+    background-color: rgb(100, 233, 100);
+}

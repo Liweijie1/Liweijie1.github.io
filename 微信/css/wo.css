@@ -1,0 +1,86 @@
+body{
+    background-color: red;
+}
+.box{
+    background-color: white;
+}
+.top{
+    width: 100%;
+    height: 30%;
+    overflow:hidden; 
+}
+.top .container{
+    height: 100%;
+}
+.top .g{
+    height: 88%;
+}
+.top .tx{
+    margin: 20% 0;
+}
+.top .wxh{
+    width: 80%;
+    height: 15%;
+    color: #9a9494;
+    display: inline-block;
+}
+.top .name{
+    margin: 10% 0;
+    font-size: 200%;
+}
+.top .img{
+    width: 18%;
+    height: 15%;    
+    display: inline-block; 
+}
+.top .img img{
+    height: 60%;
+}
+.top .tx{
+    width: 100%;
+}
+.top a{
+    color: black;
+    text-decoration: none;
+}
+.top a:hover{
+    color: black;
+    text-decoration: none;
+}
+.box-between{
+    width: 100%;
+    height: 60%;
+    overflow-y:auto;
+}
+.box-between .item{
+    width: 100%;
+    height: 12%;
+}
+.box-between .tp{
+    height: 80%;
+    margin: 1% 20px;
+}
+.box-between  span{
+    padding: 2%;
+}
+.box-between  .jt{
+    height: 30%;
+}
+.box-between a{
+    color: black;
+    text-decoration: none;
+}
+.box-between a:hover{
+    color: black;
+    text-decoration: none;
+}
+.kg{
+    width: 100%;
+    height: 10px;
+    background-color: #e4e4e4;
+}
+.jt{
+    height: 20px;
+    float: right;
+    margin: 3%;
+}
