@@ -1,42 +1,116 @@
 html,
 body {
-  font-family: 楷体,宋体,瑞美加张清平硬笔行书;
+  background: #FFF5F5;
+  font-family: 阿里妈妈刀隶体, 楷体;
+  scroll-behavior: smooth;
 }
-@font-face {
-  font-family: 瑞美加张清平硬笔行书;
-  src: url(瑞美加张清平硬笔行书.ttf);
+html header,
+body header {
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  background: white;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  box-shadow: 0px 5px 5px #aaaaaa;
 }
-.container {
+html header h1,
+body header h1 {
+  margin: 0;
+  padding: 0;
+}
+html header a,
+body header a {
+  color: #000;
+  font-size: 30px;
+  text-decoration: none;
+}
+html h1,
+body h1 {
+  font-weight: normal;
+}
+html #demo,
+body #demo,
+html #project,
+body #project {
+  height: 60px;
+}
+html .container,
+body .container {
+  margin: 20px auto;
   column-gap: 30px;
-  column-rule: 1px solid black;
 }
 @media screen and (min-width: 1200px) {
-  .container {
+  html .container,
+  body .container {
     column-count: 3;
   }
 }
 @media screen and (max-width: 1200px) and (min-width: 600px) {
-  .container {
+  html .container,
+  body .container {
     column-count: 2;
   }
 }
 @media screen and (max-width: 600px) {
-  .container {
+  html .container,
+  body .container {
     column-count: 1;
   }
 }
-.container .item {
+html .container a,
+body .container a {
+  color: #000;
+  text-decoration: none;
+  text-align: center;
+}
+html .container a .item,
+body .container a .item {
+  background: white;
   width: 100%;
   break-inside: avoid;
+  margin-bottom: 20px;
+  padding-top: 30px;
+  border-radius: 5px;
 }
-.container .item img {
+html .container a .item img,
+body .container a .item img {
   width: 80%;
   display: block;
   margin: auto;
+  transition: all 1s;
 }
-.container .item p {
-  color: #000;
-  text-align: left;
-  text-align: center;
+html .container a .item p:nth-child(2),
+body .container a .item p:nth-child(2) {
+  font-size: 36px;
+}
+html .container a .item p:nth-child(3),
+body .container a .item p:nth-child(3) {
+  font-size: 20px;
+}
+html .container a .item:hover,
+body .container a .item:hover {
+  box-shadow: 5px 5px 5px blueviolet, -5px -5px 5px red;
+}
+html .container a .item:hover img,
+body .container a .item:hover img {
+  transform: scale(1.1);
+}
+html .container a .item:hover p:nth-child(2),
+body .container a .item:hover p:nth-child(2) {
+  color: red;
+}
+html .container a .item:hover p:nth-child(3),
+body .container a .item:hover p:nth-child(3) {
+  color: blueviolet;
+}
+@font-face {
+  font-family: 阿里妈妈刀隶体;
+  src: url(fonts/AlimamaDaoLiTi.ttf), url(fonts/AlimamaDaoLiTi.woff), url(fonts/AlimamaDaoLiTi.woff2);
 }
 /*# sourceMappingURL=./index.css.map */

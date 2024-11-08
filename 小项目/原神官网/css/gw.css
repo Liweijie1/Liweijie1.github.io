@@ -1,0 +1,278 @@
+html,body{
+    width: 100%;
+    height: 100%;
+}
+
+main {
+    width: 100%;
+    position: relative;
+}
+
+section{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.s1 .video-box{
+    width: 100%;
+    height: 100%;
+}
+
+.s1 .bjsp {
+    width: 100%;
+    height: 100%;
+    object-fit: fill
+} 
+
+/* 七圣召唤 */
+.s1 .qszh {
+    width: 161px;
+    height: 152px;
+    position: absolute;
+    top: 65px;
+    right: 30px;
+}
+
+/* 适龄提示 */
+.s1 .slts {
+    width: 100px;
+    height: 130px;
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+}
+
+
+/* 播放按钮 */
+.s1 .bf-box {
+    width: 356px;
+    height: 76px;
+    background: url("../img/gw/bfk.png") no-repeat center center;
+    position: absolute;
+    bottom: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.s1 .bf {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #fff;
+}
+
+.s1 .bf:hover {
+    background: transparent;
+}
+
+.s1 .bf::before {
+    content: "";
+    width: 28px;
+    height: 28px;
+    display: block;
+    background: url(../img/gw/sjx.png) no-repeat center top;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 10;
+    transform: translate(-50%, -50%);
+}
+
+.s1 .bf:hover::before {
+    background: url(../img/gw/sjx.png) no-repeat center bottom;
+}
+
+/* 视频 */
+.s1 .sp{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 60;
+    top: 0;
+    display: none;
+}
+/* 滤镜 */
+.s1 .lj{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.685);
+    /* display: none; */
+    position: absolute;
+    z-index: 65;
+}
+
+.s1 .sp1{
+    width: 500px;
+    height: 281px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 70;
+    /* display: none; */
+}
+
+.s1 .box {
+    width: 540px;
+    height: 125px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    position: absolute;
+    left: 50%;
+    bottom: 45px;
+    z-index: 10;
+    transform: translate(-50%, 0);
+}
+
+.s1 .box1 {
+    position: relative;
+    width: 102px;
+    height: 102px;
+    margin-right: 5px;
+}
+
+/* 二维码 */
+.s1 .box1 .ewm {
+    width: 100%;
+}
+
+/* 原神 */
+.s1 .box1 .ys {
+    width: 30px;
+    height: 30px;
+    border: 2px solid #475e7d;
+    border-radius: 4px;
+    position: absolute;
+    left: 50%;
+    top: 33px;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.s1 .box2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px 0;
+}
+
+.s1 .box3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px 0;
+}
+
+.s1 .box2 img {
+    width: 160px;
+    height: 52px;
+}
+
+.s1 .box3 img {
+    width: 160px;
+    height: 52px;
+}
+
+.s1 .box4 img {
+    width: 100%;
+}
+
+.s2 {
+    width: 100%;
+    height: 1040px;
+    background: #000;
+}
+
+.s2>div {
+    width: 100%;
+    height: 260px;
+    position: relative;
+}
+
+.s2>div .bj{
+    width: 100%;
+    height: 100%;
+    position: absolute;        
+    opacity: 0.5;
+    box-sizing: border-box;
+}
+
+.mdbj{
+    background: url(../img/gw/c1.jpg) center center/cover no-repeat;
+
+}
+.lybj{
+    background: url(../img/gw/c2.jpg) center center/cover no-repeat;
+}
+.dqbj{
+    background: url(../img/gw/c3.jpg) center center/cover no-repeat;
+}
+.xmbj{
+    background: url(../img/gw/c4.jpg) center center/cover no-repeat;
+}
+
+.s2>div:hover .bj{
+    border: 5px solid white;
+    opacity: 1;
+}
+
+.s2 .k {
+    width: 132px;
+    height: 132px;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    opacity: 1;
+}
+
+.s2 span{
+    font-size: 36px;
+    color: #fff;
+    line-height: 260px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.s2 .x {
+    width: 210px;
+    height: 10px;
+    position: absolute;
+    bottom: 95px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    display: none;
+}
+
+.s2>div:hover .x{
+    display: block;
+}
+.s2 .rw{
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    z-index: 2;
+    display: none;
+}
+.s2>div:hover .rw{
+    display: block;
+}
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    bottom: 0;
+}

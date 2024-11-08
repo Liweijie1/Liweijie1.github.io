@@ -1,0 +1,148 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.jt{
+    cursor: url(../img/jt.cur) ,auto;
+}
+
+ul{
+    list-style-type: none;
+}
+a{
+    color: inherit;
+    text-decoration: none;
+    cursor: url(../img/jt.cur) ,auto;
+}
+
+html,body{
+    width: 1519px;
+    height: 100%;
+}
+
+header{
+    width: 100%;
+    height: 66px;
+    background-color: rgba(17,17,17,0.75);
+    position: fixed;
+    z-index: 100;
+}
+
+header .l{
+    width: 260px;
+    left: 100%;
+    margin-left: 4px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    float: left;
+}
+
+/* 音乐 */
+header .l .yy{
+    width: 30px;
+    height: 30px;
+}
+
+header nav{
+    width: 710px;
+    height: 100%;
+    margin-left: 40px;
+    display: flex;
+    align-items: center; 
+    color: #fff;
+    float: left;
+    font-size: 17px;
+    position: relative;
+}
+
+/* 文字 */
+header .wz{
+    width: 41px;
+    margin: 30px;
+    position: relative;
+}
+
+header .wz:nth-child(1){
+    margin-right: 30px;
+    margin-left: 0;
+}
+
+header .wz:hover{
+    text-shadow: 0 0 10px #69e0ff, 0 0 20px #69e0ff, 0 0 40px #69e0ff;
+}
+
+
+/* 二级列表 */
+header .child-list {
+    width: 300%;
+    text-align: center;
+    background-color:  rgba(17,17,17,0.75);
+    border-radius: 5px;
+    position: absolute;
+    left: 44%;
+    top: 135%;
+    z-index: 9;
+    transform: translate(-50%, 0px);
+    display: none;
+}
+
+header .child-list li{
+    height: 30px;
+    margin: 5px;
+    text-shadow:none
+}
+
+header .child-list li:hover{
+    color: rebeccapurple;
+    background-color: yellow;
+    text-shadow: 0 0 10px #69e0ff, 0 0 20px #69e0ff, 0 0 40px #69e0ff;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+header .child-list li:last-child{
+    border-bottom: 0px solid white;
+}
+/* 三角形 */
+header .child-list:before {
+    content: "";
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-bottom-color: rgba(17,17,17,0.75);
+    position: absolute;
+    left: 50%;
+    top: -19px;
+    transform: translateX(-50%);
+}
+
+/* 高光 */
+header .gg{
+    text-shadow: 0 0 10px #69e0ff, 0 0 20px #69e0ff, 0 0 40px #69e0ff;
+}
+
+/* 下划线 */
+header .xhx{
+    position: absolute;
+    z-index: 1;
+    background-color: rgb(105, 224, 255);
+    height: 5px;
+    width: 40px;
+    top: 0;
+    margin: 0;
+}
+
+header .r{
+    width: 270px;
+    height: 100%;
+    float: right;   
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: #ccc;
+}
+header .r:hover{
+    color: white;
+}

@@ -1,0 +1,524 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.jt{
+    cursor: url(../img/jt.cur) ,auto;
+}
+html,
+body {
+    width: 100%;
+    /* height: 100%; */
+}
+
+main {
+    width: 100%;
+    /* height: 100%; */
+    scroll-snap-type: y mandatory;
+    /* overflow-y: scroll; */
+}
+
+section {
+    width: 100%;
+    height: 730px;
+    position: relative;
+}
+
+
+.box1 {
+    background: url(../img/index/bj.webp) no-repeat center;
+    background-size: cover;
+}
+
+.box2 {
+    background: url(../img/index/bj2.webp) no-repeat center;
+    background-size: cover;
+}
+
+.box3 {
+    background: url(../img/index/bj3.webp) no-repeat center;
+    background-size: cover;
+}
+
+.box4 {
+    background: url(../img/index/bj4.webp) no-repeat center;
+    background-size: cover;
+}
+.box1 .container{
+    width: 1400px;
+    height: 100%;
+    margin: auto;
+    position: relative;
+}
+/* 原神 */
+.box1 .ys {
+    width: 130px;
+    height: 100px;
+    position: absolute;
+    top: 15px;
+    left: 105px;
+}
+
+.box1 .ys img {
+    width: 100%;
+    height: 100%;
+}
+
+.box1 .ys .ys2 {
+    display: none;
+}
+
+.box1 .ys:hover .ys1 {
+    display: none;
+}
+
+.box1 .ys:hover .ys2 {
+    display: block;
+}
+
+/* 进入官网 */
+.box1 .jrgw {
+    width: 175px;
+    height: 38px;
+    position: absolute;
+    top: 20px;
+    right: 90px;
+}
+
+.box1 .jrgw img {
+    width: 100%;
+    height: 100%;
+}
+
+.box1 .jrgw .jrgw2 {
+    display: none;
+}
+
+.box1 .jrgw:hover .jrgw1 {
+    display: none;
+}
+
+.box1 .jrgw:hover .jrgw2 {
+    display: block;
+}
+
+/* 召唤，决斗之巅 */
+.box1 .zhjdzd {
+    width: 710px;
+    height: 156px;
+    position: absolute;
+    bottom: 117px;
+    left: 289px;
+}
+
+/* 播放视频 */
+.box1 .bfsp {
+    width: 60px;
+    height: 59px;
+    position: absolute;
+    bottom: 100px;
+    left: 755px;
+    z-index: 20;
+}
+
+.box1 .bfsp img {
+    width: 100%;
+    height: 100%;
+}
+
+.box1 .bfsp .bfsp2 {
+    display: none;
+}
+
+.box1 .bfsp:hover .bfsp1 {
+    display: none;
+}
+
+.box1 .bfsp:hover .bfsp2 {
+    display: block;
+}
+/* 视频 */
+.box1 .sp{
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+/* 滤镜 */
+.box1 .lj{
+    width: 100vw;
+    height: 100vw;
+    background-color: rgba(0, 0, 0, 0.685);
+    display: none;
+    position: fixed;
+    left: 0;
+    z-index: 60;
+}
+
+/* 视频1 */
+.box1 .sp1{
+    width: 500px;
+    height: 281px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 70;
+}
+/* PC端下载 */
+.box1 .pcxz {
+    width: 175px;
+    height: 38px;
+    position: absolute;
+    bottom: 50px;
+    left: 450px;
+}
+
+.box1 .pcxz img {
+    width: 100%;
+    height: 100%;
+}
+
+.box1 .pcxz .pcxz2 {
+    display: none;
+}
+
+.box1 .pcxz:hover .pcxz1 {
+    display: none;
+}
+
+.box1 .pcxz:hover .pcxz2 {
+    display: block;
+}
+/* 云原神下载 */
+.box1 .yysxz {
+    width: 175px;
+    height: 38px;
+    position: absolute;
+    bottom: 50px;
+    left: 660px;
+}
+
+.box1 .yysxz img {
+    width: 100%;
+    height: 100%;
+}
+
+.box1 .yysxz .yysxz2 {
+    display: none;
+}
+
+.box1 .yysxz:hover .yysxz1 {
+    display: none;
+}
+
+.box1 .yysxz:hover .yysxz2 {
+    display: block;
+}
+
+/* 适龄提示 */
+.box1 .slts {
+    width: 70px;
+    height: 90px;
+    position: absolute;
+    bottom: 50px;
+    left: 105px;
+}
+
+.box2 .container{
+    width: 1400px;
+    height: 100%;
+    margin: auto;
+    position: relative;
+}
+
+/* 诸景巡礼 */
+.box2 .zjxl {
+    width: 165px;
+    height: 295px;
+    position: absolute;
+    top: 208px;
+    left: 279px;
+}
+
+.box2 .zjxl img {
+    width: 100%;
+    height: 100%;
+}
+
+.box2 .zjxl .zjxl2 {
+    display: none;
+}
+
+.box2 .zjxl:hover .zjxl1 {
+    display: none;
+}
+
+.box2 .zjxl:hover .zjxl2 {
+    display: block;
+}
+/* 零时召唤 */
+.box2 .lszh {
+    width: 165px;
+    height: 295px;
+    position: absolute;
+    top: 223px;
+    left: 478px;
+}
+
+.box2 .lszh img {
+    width: 100%;
+    height: 100%;
+}
+
+.box2 .lszh .lszh2 {
+    display: none;
+}
+
+.box2 .lszh:hover .lszh1 {
+    display: none;
+}
+
+.box2 .lszh:hover .lszh2 {
+    display: block;
+}
+/* 恒动械画 */
+.box2 .hdxh {
+    width: 165px;
+    height: 295px;
+    position: absolute;
+    top: 208px;
+    left: 678px;
+}
+
+.box2 .hdxh img {
+    width: 100%;
+    height: 100%;
+}
+
+.box2 .hdxh .hdxh2 {
+    display: none;
+}
+
+.box2 .hdxh:hover .hdxh1 {
+    display: none;
+}
+
+.box2 .hdxh:hover .hdxh2 {
+    display: block;
+}
+/* 妙骰战法 */
+.box2 .mtzf {
+    width: 165px;
+    height: 295px;
+    position: absolute;
+    top: 223px;
+    left: 898px;
+}
+
+.box2 .mtzf img {
+    width: 100%;
+    height: 100%;
+}
+
+.box2 .mtzf .mtzf2 {
+    display: none;
+}
+
+.box2 .mtzf:hover .mtzf1 {
+    display: none;
+}
+
+.box2 .mtzf:hover .mtzf2 {
+    display: block;
+}
+/* 了解更多卡牌信息 */
+.box2 .ljgdkpxx {
+    width: 176px;
+    height: 38px;
+    position: absolute;
+    bottom: 69px;
+    left: 562px;
+}
+
+.box2 .ljgdkpxx img {
+    width: 100%;
+    height: 100%;
+}
+
+.box2 .ljgdkpxx .ljgdkpxx2 {
+    display: none;
+}
+
+.box2 .ljgdkpxx:hover .ljgdkpxx1 {
+    display: none;
+}
+
+.box2 .ljgdkpxx:hover .ljgdkpxx2 {
+    display: block;
+}
+
+/* 背景 */
+.box3 .bj{
+    width: 100%;
+    height: 100%;
+    background: url(../img/index/bcszbj.webp) center 100%/100% no-repeat; 
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+.box3 .container{
+    width: 1400px;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    top: -100%;
+    left: 0;
+    z-index: 2;
+}
+/* 介绍 */
+.box3 .js{
+    width: 169px;
+    height: 189px;
+    background: url(../img/index/bcjs.webp) center center/cover;
+    position: absolute;
+    top: 180px;
+    left: 235px;
+}
+/* 播放 */
+.box3 .bf{
+    width: 67px;
+    height: 67px;
+    background: url(../img/index/bf1.webp) center center/cover;
+    position: absolute;
+    top: 163px;
+    right: 352px;
+}
+.box3 .bf:hover{
+    background: url(../img/index/bf2.webp) center center/cover;
+}
+/* 配音 */
+.box3 .py11{
+    width: 220px;
+    height: 56px;
+    background: url(../img/index/bcpy11.webp) center center/cover;
+    position: absolute;
+    top: 480px;
+    left: 235px;
+}
+.box3 .py21{
+    width: 220px;
+    height: 56px;
+    background: url(../img/index/bcpy21.webp) center center/cover;
+    position: absolute;
+    top: 555px;
+    left: 235px;
+}
+
+/* 头像 */
+.box3 .tx{
+    width: 89px;
+    height: 391px;
+    position: absolute;
+    top: 133px;
+    right: 220px;
+}
+/* 向上 */
+.box3 .tx .xs{
+    width: 38px;
+    height: 47px;
+    margin: auto;
+    background: url(../img/index/xs.webp) center center/cover;
+}
+.box3 .tx .xs:hover{
+    background: url(../img/index/xs2.webp) center center/cover;
+}
+/* 向下 */
+.box3 .tx .xx{
+    width: 38px;
+    height: 47px;
+    margin: auto;
+    background: url(../img/index/xx.webp) center center/cover;
+}
+.box3 .tx .xx:hover{
+    background: url(../img/index/xx2.webp) center center/cover;
+}
+.box3 .tx .xgtx{
+    width: 89px;
+    height: 88px;
+    margin: auto;
+    background: url(../img/index/xgtx1.webp) center center/cover;
+}
+.box3 .tx .xgtx:hover{
+    background: url(../img/index/xgtx2.webp) center center/cover;
+}
+.box3 .tx .bctx{
+    width: 89px;
+    height: 88px;
+    margin: auto;
+    background: url(../img/index/bctx2.webp) center center/cover;
+}
+.box3 .tx .bctx:hover{
+    background: url(../img/index/bctx2.webp) center center/cover;
+}
+.box3 .tx .qlltx{
+    width: 89px;
+    height: 88px;
+    margin: auto;
+    background: url(../img/index/qlltx1.webp) center center/cover;
+}
+.box3 .tx .qlltx:hover{
+    background: url(../img/index/qlltx2.webp) center center/cover;
+}
+.box3 .tx .x{
+    width: 10px;
+    height: 10px;
+    background: url(../img/index/xx.webp) center center/cover;
+    margin: auto;
+}
+
+.box4 .swiper {
+    width: 662px;
+    height: 362px;
+}
+
+.box4 .swiper-wrapper img {
+    width: 662px;
+    height: 361px;
+}
+
+.box4 .banner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -181px;
+    margin-left: -331px;
+}
+
+.box4 .swiper-button-prev {
+    width: 57px;
+    height: 50px;
+}
+
+.box4 .swiper-button-prev::after {
+    content: "";
+}
+
+.box4 .tp {
+    width: 600px;
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 56px;
+    left: 50%;
+    margin-left: -300px;
+}
+
+.box4 .tp img {
+    height: 100%;
+}

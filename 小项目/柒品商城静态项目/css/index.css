@@ -1,0 +1,258 @@
+.container{
+  width: 1185px;
+  margin: auto;
+  box-sizing: border-box;
+}
+.title{
+  width: 100%;
+  height: 44px;
+  position: relative;
+  border: 2px solid #F6F6F6;
+  padding-bottom: 11px;
+}
+.title h3{
+  font-size: 28px;
+  font-weight: 400;
+  padding-bottom: 11px;
+  border-bottom: 2px solid #000;
+  position: absolute;
+  top: 7px;
+  left: 0;
+}
+.title span{
+  font-size: 14px;
+  color: #999999;
+  position: absolute;
+  top: 23px;
+  right: 0;
+}
+/* 商品 */
+.goods{
+  width: 100%;
+  margin-top: 30px;
+}
+.good{
+  width: 270px;
+	height: 344px;
+  float: left;
+  margin-right: 34px;
+}
+.second-good{
+  box-shadow: 0 0 10px #efefef;
+}
+.last-good{
+  margin: 0;
+}
+.good img{
+  width: 270px;
+  height: 270px;
+}
+.goods .name{
+  font-size: 14px;
+  margin: 20px auto 7px;
+  text-align: center;
+}
+.goods .price .min{
+  color: red;
+  font-size: 14px;
+  margin-left: 72px;
+} 
+.goods .price .max{
+  color: #C3C3C3;
+  font-size: 12px;
+} 
+i{
+  display: block;
+  clear: both;
+}
+header{
+  width: 100%;
+}
+/* 登录/注册 | 我的订单 */
+header .header-top{
+  width: 100%;
+  height: 36px;
+  background: #333333;
+}
+header .login{
+  width: 122px;
+	height: 21px;
+  color: white;
+  float: right;
+  font-size: 12px;
+  line-height: 36px;
+}
+header .header-middle-box{
+  width: 100%;
+  height: 76px;
+  margin: 32px 0;
+  box-sizing: border-box;
+} 
+/* logo */
+.header-middle .left{
+  width: 215px;
+	height: 60px;
+  float: left;
+  margin-top: 8px;
+}
+.header-middle .left img{
+  width: 100%;
+  height: 100%;
+}
+/* 搜索框 */
+.header-middle .center{
+  width: 400px;
+	height: 38px;
+  float: left;
+  margin: 18px 0 0 200px;
+  border: 2px solid #2B6E5A;
+  border-radius: 19px;
+  overflow: hidden;
+}
+.header-middle .center img{
+  width: 16px;
+	height:16px;
+  margin: 1px 0 0 14px;
+  vertical-align: middle;
+}
+.header-middle .center input{
+  width: 100px;
+	height:16px;
+  font-size: 12px;
+  margin: 11px 0 0 14px;
+}
+.header-middle .center .btn{
+  width: 90px;
+	height: 38px;
+  color: white;
+  text-align: center;
+  line-height: 38px;
+	background-color: #2b6e5a;
+  float: right;
+}
+/* 购物车 */
+.header-middle .right{
+  width: 150px;
+	height: 38px;
+  margin: 18px 0;
+  float: right;
+  border: 2px solid #2b6e5a;
+  border-radius: 19px;
+}
+.header-middle .right img{
+  width: 26px;
+	height: 26px;
+  margin: 6px 0 0 11px;
+  float: left;
+}
+.header-middle .right .shoppingCart{
+	height:14px;
+  font-size: 14px;
+  margin: 10px 0 0 22px;
+  float: left;
+}
+.header-middle .right .zero{
+	width: 21px;
+	height: 21px;
+	background-color: #e62213;
+  border-radius: 10px;
+  line-height: 21px;
+  text-align: center;
+  color: white;
+  float: right;
+  margin: 8px 12px 0 0;
+}
+/* 导航栏 */
+header .header-bottom{
+  width: 100%;
+  height: 70px;
+}
+.header-bottom nav{
+  width: 600px;
+	height: 22px;
+  margin: 27px auto 21px;
+}
+.header-bottom nav ul li{
+  height: 18px;
+  font-size: 16px;
+  float: left;
+  margin-right: 50px;
+}
+.header-bottom nav .selected{
+  padding-bottom: 3px;
+  border-bottom: 2px solid #9BBDB2;
+}
+/* 轮播图 */
+.banner{
+  width: 100%;
+  height: 420px;
+  position: relative;
+}
+.banner img{
+  width: 100%;
+  height: 100%;
+}
+/* 点 */
+.banner .dot{
+  width: 106px;
+  height: 18px;
+  position: absolute;
+  left: 720px;
+  bottom: 30px;
+}
+.banner .dot div{
+  width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  background: white;
+  float: left;
+  margin-right: 14px;
+}
+/* 新品首发 */
+.newProductLaunch{
+  width: 100%;
+}
+
+/* 热销推荐 */
+.hotSellingRecommendations{
+  width: 100%;
+  margin-top:100px ;
+}
+.hotSellingRecommendations .title .ropularRecommendations{
+  width: 57px;
+  color: #437A69;
+  left: 160px;
+  padding-bottom: 3px;
+  border-bottom: 2px solid #437A69;
+}
+.hotSellingRecommendations .title .hotSellingList{
+  color: black;
+  left: 270px;
+}
+/* 折扣 */
+.discount{
+  width: 100%;
+}
+.discount img{
+  width: 100%;
+}
+/* 全品类目 */
+.fullProductCategory{
+  width: 100%;
+}
+.fullProductCategory .title ul{
+  position: absolute;
+  left: 165px;
+  top: 17px;
+}
+.fullProductCategory .title ul li{
+  float: left;
+  margin-right: 50px;
+}
+.fullProductCategory .title ul :first-child{
+  color: #999999;
+  float: left;
+  margin-right: 50px;
+  padding-bottom: 3px;
+  border-bottom: 2px solid #999999;
+}
