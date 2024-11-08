@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>简易商品管理系统</title>
+    <style>
+        /* 整体页面样式 */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* 标题样式 */
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        /* 表单样式 */
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        form input[type="text"],
+        form input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        form button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #0056b3;
+        }
+
+        /* 搜索输入框和按钮样式 */
+        #searchInput {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            width: 200px;
+        }
+
+        #searchButton {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        #searchButton:hover {
+            background-color: #218838;
+        }
+
+        /* 表格样式 */
+        #productTable {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        #productTable th,
+        #productTable td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        #productTable th {
+            background-color: #f2f2f2;
+        }
+
+        /* 表格中的图片样式 */
+        #productTable img {
+            max-width: 100px;
+            max-height: 100px;
+        }
+
+        /* 删除按钮样式 */
+        .delete {
+            background-color: #dc3545;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .delete:hover {
+            background-color: #c82333;
+        }
+
+        /* 总库存显示样式 */
+        #totalStock {
+            font-weight: bold;
+            color: #333;
+            margin-top: 10px;
+            display: block;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>简易商品管理系统</h1>
+    <form id="productForm">
+        名称:<input type="text" placeholder="请输入商品名称" id="name"> <br>
+        价格:<input type="text" placeholder="请输入商品价格" id="price"> <br>
+        库存:<input type="text" placeholder="请输入商品库存" id="stock"> <br>
+        图片:<input type="file" id="img" accept="image/*"> <br>
+        <button type="button" id="addButton">添加商品</button> <br>
+    </form>
+
+    <input type="text" id="searchInput" placeholder="输入商品名称搜索">
+    <button type="button" id="searchButton">搜索商品</button>
+    <table id="productTable">
+        <tr>
+            <th>名称</th>
+            <th>价格</th>
+            <th>库存</th>
+            <th>预览</th>
+            <th>操作</th>
+        </tr>
+        <!-- 商品信息行将被动态添加 -->
+    </table>
+    <div>总库存: <span id="totalStock">0</span></div>
+    <script src="./jQuery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // jQuery代码
+            $name = $('#name')
+            $price = $('#price')
+            $stock = $('#stock')
+            $img = $('#img')
+            $productTable = $('#productTable')
+            $totalStock = $('#totalStock')
+            $searchInput = $('#searchInput')
+            $searchButton = $('#searchButton')
+            // 定义存放所有商品对象信息的数组
+            var arr = []
+            // 定义存放当个商品信息的对象
+            var item = {}
+
+            // 初始化表格
+            function initTable() {
+                // 初始化表格
+                $productTable.html(`<tr>
+                                            <th>名称</th>
+                                            <th>价格</th>
+                                            <th>库存</th>
+                                            <th>预览</th>
+                                            <th>操作</th>
+                                        </tr>`)
+                // 声明总库存的值
+                var totalStockValue = 0
+                // 填充表格的商品信息
+                for (let i = 0; i < arr.length; i++) {
+                    $productTable.append(`<tr>
+                                                <td>${arr[i].name}</td>
+                                                <td>${arr[i].price}</td>
+                                                <td>${arr[i].stock}</td> 
+                                                <td><img src="${arr[i].img}" alt=""></td>
+                                                <td class='delete' data-name='${arr[i].name}'>删除</td>
+                                            </tr>`)
+                    totalStockValue += Number(arr[i].stock)
+                }
+                $totalStock.html(totalStockValue)
+                console.log(arr);
+            }
+
+            // 添加商品
+            $('#addButton').click(function () {
+                if ($name.val() && $price.val() && $stock.val() && $img.val()) {
+                    var file = $img[0].files[0]; // 获取文件对象
+                    // 将商品信息添加到对象中
+                    var item = {
+                        name: $name.val(),
+                        price: $price.val(),
+                        stock: $stock.val(),
+                        img: URL.createObjectURL(file) // 创建一个指向文件的URL
+                    };
+                    // 将对象添加到数组中
+                    arr.push(item)
+                    // 初始化表格
+                    initTable()
+                } else {
+                    alert("请填写完整信息")
+                }
+            })
+
+            // 删除商品
+            $('#productTable').on('click', '.delete', function () {
+                // 获取当前触发事件的数组项的名字信息
+                var name = this.dataset.name
+                // 把当前选中的数组项过滤掉
+                arr = arr.filter(function (item, index) {
+                    if (item.name == name) {
+                        return false
+                    } else {
+                        return true
+                    }
+                })
+                // 初始化表格
+                initTable()
+            })
+
+            // 搜索商品
+            $searchButton.click(function () {
+                // 把原数组拷贝一份
+                var arr2 = [...arr]
+                // 把名字不符合搜索内容商品过滤掉
+                arr = arr.filter(function (item, index) {
+                    if (item.name.indexOf($searchInput.val()) == -1) {
+                        return false
+                    } else {
+                        return true
+                    }
+                })
+                // 初始化表格
+                initTable()
+                // 恢复原数组
+                arr = [...arr2]
+            })
+        });
+    </script>
+</body>
+
+</html>

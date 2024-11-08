@@ -646,7 +646,7 @@ footer article.card p span {
   margin-right: 10px;
 }
 footer::after {
-  content: '123';
+  content: '';
   width: 120%;
   height: 300px;
   background: url(img/bg.png);

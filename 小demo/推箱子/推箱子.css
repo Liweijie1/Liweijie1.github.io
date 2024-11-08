@@ -1,0 +1,43 @@
+.map{
+  width: 640px;
+  height: 640px;
+  margin:10px auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.block{
+  width: 40px;
+  height: 40px;
+  background: url(./images/block.gif) 100%/100% no-repeat;
+  position: relative;
+}
+.wall{
+  width: 100%;
+  height: 50px;
+  background: url(./images/wall.png) center/contain no-repeat;
+  position: absolute;
+  bottom: 0;
+}
+.ball{
+  width: 40px;
+  height: 30px;
+  background: url(./images/ball.png) center/contain no-repeat;
+  position: absolute;
+  bottom: 0;
+}
+.box{
+  width: 40px;
+  height: 45px;
+  background: url(./images/box.png) center/contain no-repeat;
+  position: absolute;
+  bottom: 0;
+}
+.down{
+  width: 50px;
+  height: 65px;
+  background: url(./images/down.png) center bottom/cover no-repeat;
+  position: absolute;
+  left: -5px;
+  bottom: 0;
+  z-index: 2;
+}

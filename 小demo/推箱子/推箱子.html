@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <link rel="stylesheet" href="./推箱子.css">
+</head>
+
+<body>
+      
+      <!-- 先导入数据 -->
+      <script src="js/mapdata.js"></script>
+      <script>
+            // 完整推箱子地图
+            // console.log(levels);
+            // 输入关卡
+            var idx = prompt("请输入关卡 1-100") - 1;
+
+            var str = '<div class="map">'
+
+            for (let i = 0; i < levels[idx].length; i++) {
+                  for (let j = 0; j < levels[idx][i].length; j++) {
+                        switch (levels[idx][i][j]) {
+                              case 0:
+                                    str += '<div class="block"></div>'
+                                    break;
+                              case 1:
+                                    str += '<div class="block"><div class="wall"></div></div>'
+                                    break;
+                              case 2:
+                                    str += '<div class="block"><div class="ball"></div></div>'
+                                    break;
+                              case 3:
+                                    str += '<div class="block"><div class="box"></div></div>'
+                                    break;
+                              case 4:
+                                    str += '<div class="block"><div class="down"></div></div>'
+                                    break;
+                              case 5:
+                                    str += '<div class="block"><div class="box"></div></div>'
+                                    break;
+                        }
+                  }
+            }
+            str += "</div>"
+            document.write(str)
+      </script>
+</body>
+
+</html>

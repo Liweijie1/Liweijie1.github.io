@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>拼图</title>
+</head>
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+  }
+
+  html,
+  body{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .simple {
+    width: 300px;
+    height: 300px;
+    float: left;
+  }
+
+  .simple img {
+    width: 300px;
+    height: 300px;
+  }
+
+  h3 {
+    font-size: 20px;
+    font-weight: 600;
+    float: left;
+  }
+
+  h3 select {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .puzzle {
+    width: 300px;
+    height: 300px;
+    list-style: none;
+    float: left;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  .puzzle li {
+    border: 2px solid white;
+    transition: all 1s;
+    overflow: hidden;
+    position: absolute;
+  }
+
+  .puzzle li img {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+  }
+</style>
+
+<body>
+
+  <div class="simple"><img src="./img/banner1.jpg" alt=""></div>
+  <h3>
+    设置难度
+    <select>
+      <option value="3">3*3</option>
+      <option value="4">4*4</option>
+      <option value="5">5*5</option>
+      <option value="6">6*6</option>
+      <option value="7">7*7</option>
+      <option value="8">8*8</option>
+      <option value="9">9*9</option>
+    </select>
+  </h3>
+  <ul class="puzzle">
+  </ul>
+  <script>
+    // 定义难度等级
+    var level = document.querySelector("select")
+    var levelValue = document.querySelector("select").value
+    // 定义设置拼图函数
+    var setPuzzle = function (levelValue) {
+      // 定义拼图碎片的盒子
+      var puzzle = document.querySelector(".puzzle")
+      // 定义一个数组存放拼图碎片的顺序
+      var arr = [];
+      for (let i = 0; i < levelValue * levelValue; i++) {
+        arr.push(i);
+      }
+      // 打乱顺序
+      arr.sort(() => Math.random() - 0.5);
+      // 清除拼图碎片的盒子原本的所有子元素
+      puzzle.innerHTML = ''
+      // 给拼图碎片的盒子添加子元素
+      for (let i = 0; i < levelValue * levelValue; i++) {
+        // 定义拼图碎片
+        var li = document.createElement("li")
+        // 设置两个自定义属性,以便后期判断拼图是否完成，当两个属性相同时表示该碎片处于正确的位置上
+        // 静态自定义属性，后期不会更改
+        li.dataset.static = i
+        // 动态自定义属性，当拼图碎片位置变化时更改
+        li.dataset.dynamic = arr[i]
+        console.log(Math.floor(li.dataset.dynamic / levelValue) * 300   / levelValue);
+        // 定义拼图碎片的宽高
+        li.style.width  = (300 - 4 * levelValue) / levelValue + 'px'
+        li.style.height = (300 - 4 * levelValue) / levelValue + 'px'
+        
+        // 定义拼图碎片的位置
+        li.style.top = Math.floor(li.dataset.dynamic / levelValue) *  300  / levelValue + 'px'
+        li.style.left = Math.floor(li.dataset.dynamic % levelValue) * 300  / levelValue + 'px'
+
+        // 定义拼图碎片的图片
+        var img = document.createElement("img")
+        // 定义拼图碎片的图片的位置
+        img.style.top  = -Math.floor(i / levelValue) * 300   / levelValue + 'px'
+        img.style.left = -Math.floor(i % levelValue) * 300   / levelValue + 'px'
+        // 给拼图碎片的图片赋值
+        img.src = "./img/banner1.jpg"
+        // 将赋值后的图片加入到图片碎片中
+        li.append(img)
+        // 将拼图碎片加入到拼图碎片的盒子中
+        puzzle.appendChild(li)
+      }
+    }
+    // 创建拼图
+    setPuzzle(levelValue)
+    // 当难度改变时重新创建拼图
+    level.onchange = function () {
+      // 获取难度
+      var levelValue = document.querySelector("select").value
+      setPuzzle(levelValue)
+    }
+
+
+    // 定义拼图碎片的盒子
+    var puzzle = document.querySelector(".puzzle")
+    // 定义一个数组用于存储被点击的拼图
+    var clickArray = []
+    // 使用事件委托实现点击li的功能
+    puzzle.onclick = function (e) {
+      // 定义当前点击的元素
+      var target = e.target
+      // 当点击的元素是图片时，将目标该为li元素
+      if (target.tagName == "IMG") {
+        target = target.parentNode
+      }
+      // 当点击li元素时
+      if (target.tagName == "LI") {
+        console.log(target.offsetHeight);
+        clickArray.push(target)
+        target.style.border = "2px solid blue"
+        if (clickArray.length >= 2) {
+          clickArray[0].style.border = "2px solid white"
+          clickArray[1].style.border = "2px solid white"
+          // 互换动态自定义属性
+          var temp = clickArray[0].dataset.dynamic
+          clickArray[0].dataset.dynamic = clickArray[1].dataset.dynamic
+          clickArray[1].dataset.dynamic = temp
+          // 重新设置拼图碎片的位置
+          // 获取难度
+          var levelValue = document.querySelector("select").value
+          console.log(levelValue);
+          clickArray[0].style.top = Math.floor(clickArray[0].dataset.dynamic / levelValue) *  300  / levelValue + 'px'
+          clickArray[0].style.left = Math.floor(clickArray[0].dataset.dynamic % levelValue) * 300  / levelValue + 'px'
+          clickArray[1].style.top = Math.floor(clickArray[1].dataset.dynamic / levelValue) *  300  / levelValue + 'px'
+          clickArray[1].style.left = Math.floor(clickArray[1].dataset.dynamic % levelValue) * 300  / levelValue + 'px'
+          clickArray = []
+          // 获取所有的li
+          var lis = Array.from(document.querySelectorAll("li"))
+          // 判断拼图是否完成
+          var isFinished = lis.every((li) => {
+            return li.dataset.static == li.dataset.dynamic;
+          });
+          if (isFinished) {
+            alert("拼图完成")
+          }
+        }
+
+
+      }
+    }
+  </script>
+</body>
+
+</html>

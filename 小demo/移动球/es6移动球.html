@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>移动球</title>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+    }
+    html,
+    body{
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+    }
+  
+    section{
+      width: 300px;
+      height: 360px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 定义一个300x300像素的画布，并添加边框 -->
+  <canvas id="canvas" width="300px" height="300px" style="border: 1px solid black;"></canvas>
+
+  <table>
+    <th>
+      <h1>添加小球</h1>
+    </th>
+    <tr>
+      <td>设置小球在X轴上的初始位置:</td>
+      <td><input class="siteX" type="range" min="50" max="250" value="5" step="1"></td>
+      <td>50px</td>
+    </tr>
+    <tr>
+      <td>设置小球在Y轴上的初始位置:</td>
+      <td><input class="siteY" type="range" min="50" max="250" value="5" step="1"></td>
+      <td>50px</td>
+    </tr>
+    <tr>
+      <td>半径:</td>
+      <td><input class="radius" type="range" min="5" max="50" value="5" step="1"></td>
+      <td>5px</td>
+    </tr>
+    <tr>
+      <td>小球在X轴上的速度:</td>
+      <td><input class="speedX" type="range" min="-10" max="10" value="5" step="1"></td>
+      <td>小球向右速度:100px/s</td>
+    </tr>
+    <tr>
+      <td>小球在Y轴的速度:</td>
+      <td><input class="speedY" type="range" min="-10" max="10" value="5" step="1"></td>
+      <td>小球向下速度:100px/s</td>
+    </tr>
+    <tr>
+      <td>颜色:</td>
+      <td><input class="color" type="color"></td>
+    </tr>
+    <tr>
+      <td>
+        <input class="add" type="button" value="添加">
+      </td>
+    </tr>
+  </table>
+  <script src="./jQuery.min.js"></script>
+  <script>
+    let canvas = document.querySelector('#canvas');
+    let ctx = canvas.getContext('2d');
+
+    // 定义一个点的类，包含位置和半径
+    class Dot {
+      constructor(x, y, r) {
+        this.x = x;
+        this.y = y;
+        this.r = r;
+      }
+
+      // 绘制点的方法
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    // 定义一个彩色点的类，继承自Dot类，并添加颜色属性
+    class ColorDot extends Dot {
+      constructor(x, y, r, color) {
+        super(x, y, r);
+        this.color = color;
+      }
+
+      // 绘制彩色点的方法
+      draw() {
+        ctx.beginPath();
+        ctx.fillStyle = this.color;
+        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    // 定义一个会移动的彩色点的类，继承自ColorDot类，并添加速度属性
+    class ColorMoveDot extends ColorDot {
+      constructor(x, y, r, color, speedX, speedY) {
+        super(x, y, r, color);
+        this.speedX = speedX;
+        this.speedY = speedY;
+      }
+
+      // 移动点的方法
+      move() {
+        // 检测边界并反弹
+        if (this.x - this.r <= 0 || this.x + this.r >= 300) {
+          this.speedX = -this.speedX;
+        }
+        if (this.y - this.r <= 0 || this.y + this.r >= 300) {
+          this.speedY = -this.speedY;
+        }
+        // 更新位置并重新绘制
+        this.x += this.speedX;
+        this.y += this.speedY;
+        this.draw();
+      }
+    }
+
+    // 创建一个包含移动点的数组
+    let arr = [new ColorMoveDot(80, 60, 12, 'yellow', 2, 1)];
+
+    // 每50毫秒刷新一次画布，并移动所有点
+    setInterval(() => {
+      ctx.clearRect(0, 0, 300, 300); // 清除整个画布
+      arr.forEach((item, index) => {
+        item.move(); // 移动点
+      });
+    }, 50);
+
+    // 向数组中添加更多的移动点
+    arr.push(new ColorMoveDot(150, 160, 16, 'red', 6, -4));
+    
+    let add = document.querySelector(".add")
+
+    let siteX = $(".siteX")
+    siteX.change(function(){
+      $(this).parent().parent().children().eq(2).text(`${Number(siteX.val())}px`)
+    })
+
+    let siteY = $(".siteY")
+    siteY.change(function(){
+      $(this).parent().parent().children().eq(2).text(`${Number(siteY.val())}px`)
+    })
+    
+    let radius = $(".radius")
+    radius.change(function(){
+      $(this).parent().parent().children().eq(2).text(`${Number(radius.val())}px`)
+    })
+    
+    let speedX = $(".speedX")
+    speedX.change(function(){
+      if (speedX.val()>=0) {
+        $(this).parent().parent().children().eq(2).text(`小球向右速度
+        :${Number(speedX.val()*20)}px/s`)
+      }else{
+        $(this).parent().parent().children().eq(2).text(`小球向左速度:${-Number(speedX.val()*20)}px/s`)
+      }
+    })
+
+    let speedY = $(".speedY")
+    speedY.change(function(){
+      if (speedX.val()>=0) {
+        $(this).parent().parent().children().eq(2).text(`小球向下速度
+        :${Number(speedY.val()*20)}px/s`)
+      }else{
+        $(this).parent().parent().children().eq(2).text(`小球向上速度:${-Number(speedY.val()*20)}px/s`)
+      }
+    })
+
+    
+    add.addEventListener("click", function () {
+      let siteXValue =  Number($(".siteX").val())
+      let siteYValue =  Number($(".siteY").val())
+      let radiusValue = Number($(".radius").val())
+      let speedXValue = Number($(".speedX").val())
+      let speedYValue = Number($(".speedY").val())
+      let colorValue = $(".color").val()
+      arr.push(new ColorMoveDot(siteXValue, siteYValue, radiusValue, colorValue, speedXValue, speedYValue))
+    })
+  </script>
+</body>
+
+</html>
