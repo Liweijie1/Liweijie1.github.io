@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>lwj</title>
+</head>
+<link rel="stylesheet" href="index.css">
+
+<body>
+	<!-- 中屏显示歌词 -->
+	<div class="zhong-pig">
+		<!-- 背景虚化 -->
+		<div class="XW-wu">
+			<img src="./img/半壶纱.png" alt="">
+		</div>
+		<!-- 显示歌词滚动 -->
+		<div class="G-lyric">
+			<div class="G-back"><img src="./img/半壶纱.png" alt=""></div>
+			<div class="g-kuangci">
+				<div class="g-biaoti">
+					<p>半壶纱</p>
+					<p><span>半壶纱</span><span>歌手：刘珂矣</span></p>
+				</div>
+				<div class="ge-xianci">
+					<ul class="geciO" id="geciO">
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 底部播放器 -->
+	<div class="B-body">
+		<div id="Tyinliang" class="yinkuang">
+			<div class="yinliang">
+				<div class="Vo-dian" id="Vo-dian"></div>
+				<div class="Vo-beijing" id="Vo-beijing"></div>
+				<div class="Vo-jindu" id="Vo-jindu"></div>
+			</div>
+		</div>
+		<div style="width: 100vw;background-color: #464545;">
+			<div class="b-waizhao">
+				<!-- 播放键 -->
+				<div class="b-play">
+					<div><img src="./img/上一首.png" alt=""></div>
+					<div id="Bplay"><img style="display: block;" id="bofang" src="./img/24gf-play.png" alt=""><img
+							style="display: none;" id="zanting" src="./img/暂停 (1).png" alt=""></div>
+					<div><img src="./img/下一首.png" alt=""></div>
+				</div>
+				<!-- 进度条 -->
+				<div class="b-progress">
+					<div class="tou-X"><img src="./img/半壶纱.png" alt=""></div>
+					<div class="Prss">
+						<div class="Prss-biaoti">
+							<p class="bt-1">半壶纱</p>
+							<p class="s-time">
+								<span id="Dqian">00:00</span>&nbsp;/&nbsp;<span id="zongshijian">00:00</span>
+							</p>
+						</div>
+						<div>
+							<div class="p-instll">
+								<div id="beijing" class="p-background"></div>
+								<div id="ZongLuCheng" class="p-jintu"></div>
+								<div id="Dian" class="p-drop"></div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<!-- 音量键 -->
+				<div class="b-volume">
+					<div id="v-yinliang"><img style="display: none;" id="Y-lianse" src="./img/24gf-lan.png" alt=""><img
+							id="Y-chang" style="display: block;" src="./img/24gf-volumeHigh.png" alt=""><img id="Y-jing"
+							style="display: none;" src="./img/24gf-volumeCross.png" alt=""></div>
+					<div><img src="./img/循环播放_32.png" alt=""></div>
+					<div><img src="./img/分享 (1).png" alt=""></div>
+					<div><img src="./img/下载.png" alt=""></div>
+				</div>
+
+
+			</div>
+		</div>
+
+	</div>
+	<audio id="audiO" src="./mp3s/半壶纱.mp3"></audio>
+</body>
+<script>
+	let lyric = [
+		{
+			'name': '半壶纱',
+			'img': 'img/半壶纱.png',
+			'audio_src': './mp3s/半壶纱.mp3',
+			'content': "[00:00.00]半壶纱 - 刘珂矣 [00:06.58]词：刘珂矣/百慕三石 [00:13.16]曲：刘珂矣/百慕三石 [00:19.74]编曲：百慕三石 [00:26.32]墨已入水渡一池青花 [00:31.58] [00:32.16]揽五分红霞采竹回家 [00:38.23]悠悠风来 埋一地桑麻 [00:44.41]一身袈裟  把相思放下  [00:50.52]十里桃花待嫁的年华 [00:56.56]凤冠的珍珠 挽进头发 [01:02.63]檀香拂过玉镯弄轻纱 [01:08.84]空留一盏 芽色的清茶 [01:14.92]倘若我心中的山水 [01:18.75]你眼中都看到 [01:22.14]我便一步一莲花祈祷 [01:27.23]怎知那浮生一片草 [01:31.32]岁月催人老  [01:34.41]风月花鸟 一笑尘缘了 [02:04.00]十里桃花待嫁的年华 [02:09.96]凤冠的珍珠 挽进头发 [02:16.02]檀香拂过玉镯弄轻纱 [02:22.18]空留一盏 芽色的清茶 [02:28.27]倘若我心中的山水 [02:32.12]你眼中都看到 [02:35.52]我便一步一莲花祈祷 [02:40.57]怎知那浮生一片草 [02:44.71]岁月催人老 [02:47.78]风月花鸟 一笑尘缘了 [02:52.78]倘若我心中的山水 你眼中都看到 [03:00.00]我便一步一莲花祈祷 [03:05.03]怎知那浮生一片草 岁月催人老 [03:12.23]风月花鸟 一笑尘缘了 [03:17.15]怎知那浮生一片草 岁月催人老 [03:24.36]风月花鸟 一笑尘缘了"
+		}
+	];
+
+	let audiO = document.getElementById("audiO");//获取audio的id
+	let Bplay = document.getElementById("Bplay");//播放
+	let bofang = document.getElementById("bofang");//播放img
+	let zanting = document.getElementById("zanting");//暂停img
+	let ZongLuCheng = document.getElementById("ZongLuCheng");//总路程
+	let beijing = document.getElementById("beijing");//蓝条背景
+	let Dian = document.getElementById("Dian");//点
+	let zongshijian = document.getElementById("zongshijian")//页面上的歌曲总时间
+	let timer;//歌曲播放定时器
+	let onFout = true;//播放标记
+	let Vodian = document.getElementById("Vo-dian");//音量上的点
+	let Vobeijing = document.getElementById("Vo-beijing");//音量上的白色背景
+	let Vojindu = document.getElementById("Vo-jindu");//音量上的进度条
+	let Vyinliang = document.getElementById("v-yinliang");//鼠标拂过显示音量
+	let Tyinliang = document.getElementById("Tyinliang");//调节音量的父级
+	let geciO = document.getElementById("geciO");//获取歌词id
+	let Gcibiaoji = 0; //滚动歌词需要
+
+
+	//转换成时间，用户输入任意秒数, 函数计算该毫秒数对应的时分秒, 并返回
+	function getTime(time) {
+		// 转换为式分秒
+		let h = parseInt(time / 60 / 60 % 24)
+		h = h < 10 ? '0' + h : h
+		let m = parseInt(time / 60 % 60)
+		m = m < 10 ? '0' + m : m
+		let s = parseInt(time % 60)
+		s = s < 10 ? '0' + s : s
+		// 作为返回值返回
+		return [h, m, s]
+	}
+
+	// 播放歌曲
+	Bplay.onclick = function () {
+		if (onFout == true) {
+			audiO.play();
+			bofang.style = "display: none;"
+			zanting.style = "display: block;"
+			timer = setInterval(ProgressTime, 1000);//每一秒执行一次
+			onFout = false;
+		} else {
+			audiO.pause();
+			bofang.style = "display: block;"
+			zanting.style = "display: none;"
+			onFout = true;
+		}
+	}
+	//歌曲进度条
+	function ProgressTime() {
+		//公式：当前运动时间 除以 总时间 =比例；   然后比例*总路程 在赋值给那小点    
+		let a = audiO.currentTime / audiO.duration;
+		Dian.style.marginLeft = ~~(a * ZongLuCheng.offsetWidth) + "px";
+		beijing.style.width = a * ZongLuCheng.offsetWidth + "px";
+
+		//把当前运动时间传给页面
+		let Odangqian = getTime(audiO.currentTime);
+		let Dqian = document.getElementById("Dqian");
+		Dqian.innerHTML = `${Odangqian[1]}:${Odangqian[2]}`
+		Gcibiaoji = parseInt(getComputedStyle(Dian).marginLeft); //滚动歌词需要
+	}
+
+	//判断是否有时间
+	let zongtimg = setInterval(function () {
+		if (zongshijian.innerHTML !== "NaN:NaN" || zongshijian.innerHTML !== "00:00") {
+			let res = getTime(audiO.duration);
+			zongshijian.innerHTML = `${res[1]}:${res[2]}`
+			console.log("出现了");
+			clearInterval(zongtimg);//清除定时器
+		} else {
+			console.log("没出现了");
+		}
+	}, 100);
+
+	//拖动进度条
+	tuodong();
+	function tuodong() {
+		Dian.onmousedown = function (ev) {
+			document.onmousemove = function (ev) {
+				//offsetParent 元素自身有fixed定位，父元素不存在定位，则offsetParent的结果为null（firefox中为：body，其他浏览器返回为null）
+				let x = ev.clientX;
+				let a = x - Dian.offsetParent.offsetLeft - Dian.offsetWidth / 2;
+				Dian.style.marginLeft = a + "px";
+				beijing.style.width = a + "px";
+
+				// 滑动滚动条歌词跟着走
+				let dd = a * 3;
+				let Heit = geciO.offsetHeight;
+				// console.log(Heit);
+				if (dd >= 0 && dd <= Heit) {
+					geciO.style.marginTop = "-" + dd + 'px';
+				}
+
+				//以当前运动时间除以总路程 = 比例 比例*总时间   就求出了当时运动到哪里了
+				let n = parseInt(getComputedStyle(Dian).marginLeft) / ZongLuCheng.offsetWidth;
+				audiO.currentTime = n * audiO.duration;
+				ProgressTime();
+			}
+			document.onmouseup = function (ev) {
+				this.onmousedown = null;
+				this.onmousemove = null;
+			}
+		}
+	}
+	// 音量拖拽
+	Vodian.onmousedown = function (e) {
+		document.onmousemove = function (e) {
+			let y = e.clientY;
+			let a = Vodian.offsetParent.offsetTop;
+			let n = y - a - Vodian.offsetWidth / 2;
+			if (n >= 7 && n <= 101) {
+				Vodian.style.marginTop = n + "px";
+				Vobeijing.style.height = n + "px";
+
+				//让音量同步   以当前运动时间除以总路程 = 比例 比例*总时间   就求出了当时运动到哪里了
+				let coP = parseInt(getComputedStyle(Vodian).marginTop) / Vojindu.offsetHeight - 1;
+				let lopT = coP * -1
+				audiO.volume = lopT;
+
+				let Yjing = document.getElementById("Y-jing");
+				let Ychang = document.getElementById("Y-chang");
+				if (lopT == -0) {
+					Yjing.style = "display:block";
+					Ychang.style = "display: none"
+					console.log("静音");
+				} else {
+					Yjing.style = "display:none";
+					Ychang.style = "display: block"
+				}
+			} else {
+				n = 7;
+			}
+
+		}
+		document.onmouseup = function (e) {
+			this.onmousedown = null;
+			this.onmousemove = null;
+		}
+	}
+	//渲染歌词
+	let str = '';
+	init();
+	function init() {
+		let g = lyric[0].content.split('[');
+		g.forEach((current,index) => {
+			let h = current.split(']');
+			let lyrics = h[1];
+			// 切割字符串 转换成时间
+			let q = h[0].split('.');
+			let n = q[0].split(':');
+			let time = n[0] * 60 + parseInt(n[1]);
+			if (lyrics) {
+				str += '<li id="s' + time + '" '+ 'data-order="'+ index+'">' + lyrics +''+ '</li>';
+			}
+			geciO.innerHTML = str;
+		})
+	}
+	geciTB()
+	// 定义一个函数geciTB，用于同步歌词的显示
+function geciTB() {
+    let index = 0; // 定义一个计数器index，用于记录当前播放到的歌词行的索引
+
+    // 为audio对象添加一个timeupdate事件监听器，该事件在音频播放时定时触发
+    audiO.addEventListener("timeupdate", function () {
+        // 取整当前播放时间，因为歌词时间戳是以秒为单位的
+        let cur = parseInt(this.currentTime);
+
+        // 如果当前时间对应的歌词元素存在
+        if (document.getElementById('s' + cur)) {
+            // 将上一歌词行的样式恢复为默认颜色
+            document.getElementById('s' + index).style.cssText = 'color: #eeeeee';
+            
+            // 将当前歌词行的样式设置为高亮颜色，并增加字体大小，添加渐变效果
+            document.getElementById('s' + cur).style.cssText = 'color: #55ff00;font-size: 24px;transition: 0.5s;';
+            
+            // 更新计数器index为当前播放的歌词行索引
+            index = cur;
+						var curOrder = document.getElementById('s' + cur).getAttribute('data-order')
+						document.getElementById("geciO").style.marginTop = 150 - 30 * curOrder + "px";
+						console.log(curOrder,150 - 30 * curOrder);
+					
+            
+            // 如果当前歌词行距离其父元素顶部的距离大于或等于489px
+            if (document.getElementById('s' + cur).offsetTop >= 489) {
+                // 计算需要滚动的距离，这里Gcibiaoji是之前定义的一个变量，用于记录滚动的偏移量
+                let topf = Gcibiaoji * 3;
+                
+                // 更新歌词容器的marginTop样式，使其向上滚动，以保持当前播放的歌词行在视图中可见
+                geciO.style.marginTop = "-" + (topf - 150) + "px";
+								console.log(document.getElementById('s' + cur));
+            }
+        }
+    }, false); // 使用捕获模式添加事件监听器
+}
+
+
+	//鼠标拂过显示音量键
+	Vyinliang.onmouseover = function () {
+		let Ylianse = document.getElementById("Y-lianse")
+		Tyinliang.style = "opacity: 1;";
+		Vyinliang.onmouseleave = function () {
+			Tyinliang.style = "opacity: 0;"
+		}
+	}
+	//鼠标移开隐藏音量键
+	Tyinliang.onmouseover = function () {
+		Tyinliang.style = "opacity: 1;"
+		Tyinliang.onmouseleave = function () {
+			Tyinliang.style = "opacity: 0;"
+		}
+	}
+
+</script>
+
+</html>

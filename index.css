@@ -43,25 +43,9 @@ body #project {
 html .container,
 body .container {
   margin: 20px auto;
-  column-gap: 30px;
-}
-@media screen and (min-width: 1200px) {
-  html .container,
-  body .container {
-    column-count: 3;
-  }
-}
-@media screen and (max-width: 1200px) and (min-width: 600px) {
-  html .container,
-  body .container {
-    column-count: 2;
-  }
-}
-@media screen and (max-width: 600px) {
-  html .container,
-  body .container {
-    column-count: 1;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 html .container a,
 body .container a {
@@ -72,7 +56,7 @@ body .container a {
 html .container a .item,
 body .container a .item {
   background: white;
-  width: 100%;
+  width: 400px;
   break-inside: avoid;
   margin-bottom: 20px;
   padding-top: 30px;

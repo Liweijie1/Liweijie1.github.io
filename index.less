@@ -39,25 +39,9 @@ body {
 
   .container {
     margin: 20px auto;
-    column-gap: 30px;
-
-    @media screen and (min-width:1200px) {
-      & {
-        column-count: 3;
-      }
-    }
-
-    @media screen and (max-width:1200px) and (min-width:600px) {
-      & {
-        column-count: 2;
-      }
-    }
-
-    @media screen and (max-width:600px) {
-      & {
-        column-count: 1;
-      }
-    }
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 
     a {
       color: #000;
@@ -66,7 +50,7 @@ body {
 
       .item {
         background: white;
-        width: 100%;
+        width: 400px;
         break-inside: avoid;
         margin-bottom: 20px;
         padding-top: 30px;
