@@ -1,0 +1,100 @@
+main{
+    width: 100%;
+    height: 830px;
+    font-size: 13px;
+    color: #666666;
+}
+main .container{
+    width: 980px;
+    height: 100%;    
+    padding: 10px;
+    background: white;
+    margin: auto;
+}
+main .container .left{
+    float: left;
+}
+main .container .left-top{
+    width: 216px;
+    height: 460px;
+}
+main .container .left-top>img{
+    width: 100%;
+}
+main .container .left-top ul{
+    width: 200px;
+    background-color: #f4f4f4;
+    margin: auto;
+    border-right: 1px solid #dddddd;
+    border-left: 1px solid #dddddd;
+}
+main .container .left-top ul li{
+    height: 30px;
+    padding: 3px 10px;
+    box-sizing: border-box;
+    border-top: 1px solid;
+    border-image:   linear-gradient(to right,#ddddee 80%,#f4f4f4) 1;
+}
+main .container .left-top ul li>img{
+    margin-right:  5px;
+}
+main .container .left-bottom{
+    width: 216px;
+    height: 200px;    
+}
+main .container .left-bottom>img{
+    width: 100%;
+}
+main .container .left-bottom div{
+    width: 200px;
+    margin:-6px auto 0;
+    background-color: #f4f4f4;
+    border: 1px solid #dddddd;
+    border-top: none;
+    box-sizing: border-box;
+    padding: 10px;    
+}
+main .container .right{
+    float: right;
+}
+main .container .right-top{
+    width: 733px;
+    height: 49px;
+    background: url(../images/right_tit_bg.jpg);
+}
+main .container .right-top .gs{
+    display: block;
+    font-size: 16px;
+    transform:translate(45px,15px);
+}
+main .container .right-top .n{
+    width: 220px;
+    display: block;
+    font-size: 14px;
+    transform:translate(510px,-2px);
+    color: #0e1707;
+}
+main .container .right-between ul{
+    width: 715px;
+    margin: auto;
+}
+main .container .right-between li{
+    height: 43px;    
+    line-height: 43px;
+    border-bottom: 1px #cccccc dotted;
+    box-sizing: border-box;
+}
+main .container .right-between li a{
+    width: 100%;
+    height: 100%;
+    color: #666666;
+}
+main .container .right-between li span{
+    color: #0e1707;
+    float: right;
+}
+main .container .right-bottom{
+    color: #0e1707;
+    display: flex;
+    justify-content: center;
+}

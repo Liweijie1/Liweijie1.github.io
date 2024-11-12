@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+  }
+  html,
+  body{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  ul {
+    width: 400px;
+    height: 40px;
+    margin: 100px 0 20px;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    position: relative;
+  }
+
+  ul li {
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    z-index: 10;
+  }
+
+  .slider {
+    width: 80px;
+    height: 5px;
+    background-color: yellow;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  .pic {
+    width: 400px;
+  }
+
+  .pic img {
+    width: 100%;
+  }
+</style>
+
+<body>
+  <ul>
+    <li>凤爪</li>
+    <li>杨梅干</li>
+    <li>坚果大礼包</li>
+    <li>香肠</li>
+    <li>香水</li>
+    <div class="slider"></div>
+  </ul>
+  <div class="pic">
+    <img src="./img/banner1.jpg">
+    <img src="./img/banner2.jpg">
+    <img src="./img/banner3.jpg">
+    <img src="./img/banner4.jpg">
+    <img src="./img/banner5.jpg">
+  </div>
+</body>
+
+</html>
+<script src="./jQuery.min.js"></script>
+<script>
+  $('.pic img').hide()
+  $('.pic img').eq(0).show()
+  $("ul li").click(function () {
+    let idx = $(this).index();
+    $(".slider").stop().animate({
+      left: $(this).index() * 80
+    })
+    $('.pic img').eq(idx).slideToggle().siblings().stop().hide()
+  })
+</script>

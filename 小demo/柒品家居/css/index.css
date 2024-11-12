@@ -1,0 +1,216 @@
+.container{
+  width: 1185px;
+  margin: auto;
+  box-sizing: border-box;
+}
+.title{
+  width: 100%;
+  height: 44px;
+  position: relative;
+  border-bottom: 2px solid #F6F6F6;
+  padding-bottom: 11px;
+}
+.title h3{
+  font-size: 28px;
+  font-weight: 400;
+  padding-bottom: 11px;
+  border-bottom: 2px solid #000;
+  position: absolute;
+  top: 7px;
+  left: 0;
+}
+.title span{
+  font-size: 14px;
+  color: #999999;
+  position: absolute;
+  top: 23px;
+  right: 0;
+}
+/* 商品 */
+.goods{
+  width: 100%;
+  margin-top: 30px;
+}
+.good{
+  width: 270px;
+	height: 344px;
+  float: left;
+  margin-right: 34px;
+}
+.second-good{
+  box-shadow: 0 0 10px #efefef;
+}
+.last-good{
+  margin: 0;
+}
+.good img{
+  width: 270px;
+  height: 270px;
+}
+.goods .name{
+  font-size: 14px;
+  margin: 20px auto 7px;
+  text-align: center;
+}
+.goods .price .min{
+  color: red;
+  font-size: 14px;
+  margin-left: 72px;
+} 
+.goods .price .max{
+  color: #C3C3C3;
+  font-size: 12px;
+} 
+i{
+  display: block;
+  clear: both;
+}
+/* 轮播图 */
+.banner{
+  width: 100%;
+  height: 420px;
+  position: relative;
+}
+.banner img{
+  width: 100%;
+  height: 100%;
+}
+/* 点 */
+.banner .dot{
+  width: 106px;
+  height: 18px;
+  position: absolute;
+  left: 720px;
+  bottom: 30px;
+}
+.banner .dot div{
+  width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  background: white;
+  float: left;
+  margin-right: 14px;
+}
+/* 新品首发 */
+.newProductLaunch{
+  width: 100%;
+}
+
+/* 热销推荐 */
+.hotSellingRecommendations{
+  width: 100%;
+  margin-top:100px ;
+}
+.hotSellingRecommendations .title .ropularRecommendations{
+  width: 57px;
+  color: #437A69;
+  left: 160px;
+  padding-bottom: 3px;
+  border-bottom: 2px solid #437A69;
+}
+.hotSellingRecommendations .title .hotSellingList{
+  color: black;
+  left: 270px;
+}
+/* 折扣 */
+.discount{
+  width: 100%;
+}
+.discount img{
+  width: 100%;
+}
+/* 全品类目 */
+.fullProductCategory{
+  width: 100%;
+}
+.fullProductCategory .title ul{
+  position: absolute;
+  left: 165px;
+  top: 17px;
+}
+.fullProductCategory .title ul li{
+  float: left;
+  margin-right: 50px;
+}
+.fullProductCategory .title ul :first-child{
+  color: #999999;
+  float: left;
+  margin-right: 50px;
+  padding-bottom: 3px;
+  border-bottom: 2px solid #999999;
+}
+/* 生活家晒单 */
+.displayGoods{
+  width: 100%;
+  height: 570px;
+  margin-top: 120px;
+}
+.displayGoods .saying{
+  left: 190px;
+}
+.displayGoods-goodsBox{
+  width: 100%;
+  height: 370px;
+  margin: 30px 0 60px 0;
+}
+.displayGoods .good{
+  width: 370px;
+	height: 370px;
+  margin: 0 37.5px 0 0;
+  position: relative;
+}
+.displayGoods .good:last-child{
+  margin: 0;
+}
+.displayGoods .good img{
+  width: 100%;
+  height: 100%;
+}
+.displayGoods .good-mask img{
+  opacity: 0.5;
+}
+.displayGoods .mask{
+  width: 370px;
+	height: 370px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.displayGoods .mask .mask-top{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #666666;
+  margin: 60px auto 30px;
+}
+.displayGoods .mask .mask-middle{
+  width: 158px;
+	height: 49px;
+  font-size: 12px;
+  color: #333333;
+  text-align: center;
+  margin: auto;
+}
+.displayGoods .mask .mask-bottom{
+  width: 135px;
+	height: 55px;
+  color: #e39922;
+	border: solid 2px #e39922;
+  margin: 30px auto;
+}
+.displayGoods .mask .mask-bottom span{
+  display: block;
+  margin: 5px auto;
+  text-align: center;
+}
+.displayGoods .name{
+  width: 370px;
+	height: 40px;
+  color: white;
+  text-align: center;
+  line-height: 40px;
+	background-color: #333333;
+	opacity: 0.75;
+  position: absolute;
+  bottom: 0;
+}

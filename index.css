@@ -30,6 +30,37 @@ body header a {
   font-size: 30px;
   text-decoration: none;
 }
+html header .demo,
+body header .demo {
+  color: #000;
+  font-size: 30px;
+  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+}
+html header .demo ul,
+body header .demo ul {
+  width: 200px;
+  position: absolute;
+  top: 60px;
+  left: -50%;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: white;
+  border-radius: 5px;
+}
+html header .demo ul li,
+body header .demo ul li {
+  height: 50px;
+  font-style: 20px;
+  line-height: 50px;
+}
+html header .demo ul li:hover,
+body header .demo ul li:hover {
+  color: white;
+  background: linear-gradient(160deg, red 0%, #a5d534 100%);
+}
 html h1,
 body h1 {
   font-weight: normal;
@@ -37,21 +68,36 @@ body h1 {
 html #demo,
 body #demo,
 html #project,
-body #project {
-  height: 60px;
+body #project,
+html #htmlCss,
+body #htmlCss,
+html #js,
+body #js,
+html #jq,
+body #jq,
+html #ES6,
+body #ES6 {
+  width: 100%;
+  padding-top: 60px;
 }
 html .container,
 body .container {
   margin: 20px auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
+}
+html .container h2,
+body .container h2 {
+  width: 100%;
+  text-indent: 2em;
 }
 html .container a,
 body .container a {
   color: #000;
   text-decoration: none;
   text-align: center;
+  margin: 0 10px;
 }
 html .container a .item,
 body .container a .item {

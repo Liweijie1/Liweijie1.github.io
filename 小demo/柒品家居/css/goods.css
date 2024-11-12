@@ -1,0 +1,54 @@
+.goods{
+  width: 100%;
+  margin-top: 30px;
+}
+.good{
+  width: 270px;
+	height: 344px;
+  float: left;
+  margin-right: 40px;
+}
+.selected-good{
+  box-shadow: 0 0 10px #dfdfdf;
+  position: relative;
+}
+.last-good{
+  margin: 0;
+}
+.good img{
+  width: 270px;
+  height: 270px;
+}
+.goods .name{
+  font-size: 14px;
+  margin: 20px auto 7px;
+  text-align: center;
+}
+.goods .price .min{
+  color: red;
+  font-size: 14px;
+  margin-left: 72px;
+} 
+.goods .price .max{
+  color: #C3C3C3;
+  font-size: 12px;
+} 
+.goods .price .shoppingCar{
+  width: 15px;
+  height: 15px;
+  padding: 8px;
+  background-color: #43846f;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  bottom: 16px;
+  right: 25px;
+} 
+.goods .price img{
+  width: 100%;
+  height: 100%;
+} 
+i{
+  display: block;
+  clear: both;
+}

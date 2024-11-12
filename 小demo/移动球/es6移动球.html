@@ -38,28 +38,28 @@
     </th>
     <tr>
       <td>设置小球在X轴上的初始位置:</td>
-      <td><input class="siteX" type="range" min="50" max="250" value="5" step="1"></td>
-      <td>50px</td>
+      <td><input class="siteX" type="range" min="100" max="200" value="100" step="1"></td>
+      <td>100px</td>
     </tr>
     <tr>
       <td>设置小球在Y轴上的初始位置:</td>
-      <td><input class="siteY" type="range" min="50" max="250" value="5" step="1"></td>
-      <td>50px</td>
+      <td><input class="siteY" type="range" min="100" max="200" value="100" step="1"></td>
+      <td>100px</td>
     </tr>
     <tr>
       <td>半径:</td>
-      <td><input class="radius" type="range" min="5" max="50" value="5" step="1"></td>
+      <td><input class="radius" type="range" min="5" max="30" value="5" step="1"></td>
       <td>5px</td>
     </tr>
     <tr>
       <td>小球在X轴上的速度:</td>
       <td><input class="speedX" type="range" min="-10" max="10" value="5" step="1"></td>
-      <td>小球向右速度:100px/s</td>
+      <td>初始方向向右,速度:100px/s</td>
     </tr>
     <tr>
       <td>小球在Y轴的速度:</td>
       <td><input class="speedY" type="range" min="-10" max="10" value="5" step="1"></td>
-      <td>小球向下速度:100px/s</td>
+      <td>初始方向向下,速度:100px/s</td>
     </tr>
     <tr>
       <td>颜色:</td>
@@ -166,20 +166,20 @@
     let speedX = $(".speedX")
     speedX.change(function(){
       if (speedX.val()>=0) {
-        $(this).parent().parent().children().eq(2).text(`小球向右速度
+        $(this).parent().parent().children().eq(2).text(`初始方向向右,速度
         :${Number(speedX.val()*20)}px/s`)
       }else{
-        $(this).parent().parent().children().eq(2).text(`小球向左速度:${-Number(speedX.val()*20)}px/s`)
+        $(this).parent().parent().children().eq(2).text(`初始方向向左,速度:${-Number(speedX.val()*20)}px/s`)
       }
     })
 
     let speedY = $(".speedY")
     speedY.change(function(){
       if (speedX.val()>=0) {
-        $(this).parent().parent().children().eq(2).text(`小球向下速度
+        $(this).parent().parent().children().eq(2).text(`初始方向向下,速度
         :${Number(speedY.val()*20)}px/s`)
       }else{
-        $(this).parent().parent().children().eq(2).text(`小球向上速度:${-Number(speedY.val()*20)}px/s`)
+        $(this).parent().parent().children().eq(2).text(`初始方向向上,速度:${-Number(speedY.val()*20)}px/s`)
       }
     })
 

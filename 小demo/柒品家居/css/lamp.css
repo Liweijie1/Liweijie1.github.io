@@ -1,0 +1,73 @@
+body{
+  background: #F8F8F8;
+}
+.container{
+  width: 1200px;
+  margin: auto;
+}
+.middle{
+  margin-top:10px ;
+}
+.middle .container{
+  width: 1200px;
+  background: white;
+}
+.goods-title{
+  width: 200px;
+  font-size: 24px;
+  text-align: center;
+  display: block;
+  margin: 70px auto 12px;
+}
+.chandelier .goods-title{
+  margin: 30px auto 12px;
+}
+.goods-title-Enlish{
+  width: 200px;
+  font-size: 12px;
+  text-align: center;
+  color: #666666;
+  display: block;
+  margin: auto;
+}
+/* 面包屑 */
+.crumbs{
+  font-size: 12px;
+  word-spacing: 18px;
+  display: block;
+  padding: 10px 0 20px 15px;
+  background: #F8F8F8;
+}
+.crumbs span:last-child{
+  color: #898989;
+}
+/* 分类 */
+.classification{
+  background: white;
+  padding: 15px;
+  box-sizing: border-box;
+}
+.classification>ul{
+  overflow: hidden;
+  border-bottom: 2px solid #F6F6F6;
+  margin-bottom: 30px;
+}
+.classification>ul:last-child{
+  border: 0 ;
+}
+.classification>ul>li{
+  height: 36px;
+  font-size: 12px;
+  line-height: 36px;
+  float: left;
+  margin-right: 30px;
+}
+.classification>ul>li:nth-child(1)
+{
+  margin-right: 40px;
+  color: #898989;
+}
+.classification>ul>li:nth-child(2)
+{
+  color: #898989;
+}

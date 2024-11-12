@@ -8,32 +8,73 @@
   <title>李维杰的个人网站</title>
   <link rel="stylesheet" href="./index.css">
 </head>
+
 <body>
   <header>
     <h1>李维杰的个人网站</h1>
-    <a href="#demo">小案例</a>
-    <a href="#project">小项目</a>
+    <div class="demo">
+      小案例
+      <ul class="demo-ul">
+        <a href="#htmlCss">
+          <li>
+            html+css
+          </li>
+        </a>
+        <a href="#js">
+          <li>
+            js
+          </li>
+        </a>
+        <a href="#jq">
+          <li>
+            jq
+          </li>
+        </a>
+        <a href="#ES6">
+          <li>
+            ES6
+          </li>
+        </a>
+      </ul>
+    </div>
+
+    <a href="#project">
+      小项目
+    </a>
   </header>
-  <div id="demo"></div>
-  <h1>小案例</h1>
+  <div id="demo">
+    <h1>小案例</h1>
+  </div>
   <hr>
   <section class="container">
-    <a href="./小demo/手风琴/手风琴.html">
+    <div id="htmlCss">
+      <h2>html+css</h2>
+    </div>
+    <a href="./小demo/趣学网/index.html">
       <div class="item">
-        <img src="./img/小demo/手风琴.png">
-        <p>手风琴</p>
+        <img src="./img/小demo/趣学网.png">
+        <p>趣学网</p>
       </div>
     </a>
+    <a href="./小demo/绿色食品网站/index.html">
+      <div class="item">
+        <img src="./img/小demo/绿色食品网站.png">
+        <p>绿色食品网站</p>
+      </div>
+    </a>
+    <a href="./小demo/柒品家居/index.html">
+      <div class="item">
+        <img src="./img/小demo/柒品家居.png">
+        <p>柒品家居</p>
+      </div>
+    </a>
+    <div id="js">
+      <h2>js</h2>
+    </div>
     <a href="./小demo/推箱子/推箱子.html">
       <div class="item">
         <img src="./img/小demo/推箱子.png">
         <p>推箱子</p>
-      </div>
-    </a>
-    <a href="./小demo/商品管理系统/简易商品管理系统.html">
-      <div class="item">
-        <img src="./img/小demo/商品管理系统.png">
-        <p>简易商品管理系统</p>
       </div>
     </a>
     <a href="./小demo/放大镜/放大镜.html">
@@ -48,22 +89,46 @@
         <p>拼图</p>
       </div>
     </a>
-    <a href="./小demo/移动球/es6移动球.html">
-      <div class="item">
-        <img src="./img/小demo/移动球.png">
-        <p>移动球</p>
-      </div>
-    </a>
     <a href="./小demo/音乐播放器/index.html">
       <div class="item">
         <img src="./img/小demo/音乐播放器.png">
         <p>简易音乐播放器</p>
       </div>
     </a>
-
+    <div id="jq">
+      <h2>jq</h2>
+    </div>
+    <a href="./小demo/手风琴/手风琴.html">
+      <div class="item">
+        <img src="./img/小demo/手风琴.png">
+        <p>手风琴</p>
+      </div>
+    </a>
+    <a href="./小demo/滑动选项卡/滑动选项卡.html">
+      <div class="item">
+        <img src="./img/小demo/滑动选项卡.png">
+        <p>滑动选项卡</p>
+      </div>
+    </a>
+    <a href="./小demo/商品管理系统/简易商品管理系统.html">
+      <div class="item">
+        <img src="./img/小demo/商品管理系统.png">
+        <p>简易商品管理系统</p>
+      </div>
+    </a>
+    <div id="ES6">
+      <h2>ES6</h2>
+    </div>
+    <a href="./小demo/移动球/es6移动球.html">
+      <div class="item">
+        <img src="./img/小demo/移动球.png">
+        <p>移动球</p>
+      </div>
+    </a>
   </section>
-  <div id="project"></div>
-  <h1>小项目</h1>
+  <div id="project">
+    <h1>小项目</h1>
+  </div>
   <hr>
   <section class="container">
     <a href="./小项目/微信/index.html">
@@ -88,5 +153,8 @@
       </div>
     </a>
   </section>
+  <script src="./jQuery.min.js"></script>
+  <script src="./index.js"></script>
 </body>
+
 </html>
