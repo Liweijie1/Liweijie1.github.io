@@ -76,7 +76,9 @@ body #js,
 html #jq,
 body #jq,
 html #ES6,
-body #ES6 {
+body #ES6,
+html #swiper,
+body #swiper {
   width: 100%;
   padding-top: 60px;
 }

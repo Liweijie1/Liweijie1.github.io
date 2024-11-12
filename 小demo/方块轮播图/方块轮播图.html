@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Swiper demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="./swiper-bundle.min.css" />
+
+  <!-- Demo styles -->
+  <style>
+    html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+
+    body {
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+
+    .bg{
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background:url("./img/banner1.jpg") no-repeat center center / cover;
+      opacity: 0.5;
+    }
+
+    .swiper {
+      width: 300px;
+      height: 300px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -150px;
+      margin-top: -150px;
+    }
+
+    .swiper-slide {
+      background-position: center;
+      background-size: cover;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg"></div>
+
+    <!-- Swiper -->
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="./img/banner1.jpg" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./img/banner2.jpg" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./img/banner3.jpg" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./img/banner4.jpg" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./img/banner5.jpg" />
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  
+
+  <!-- Swiper JS -->
+  <script src="./swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      effect: "cube",
+      grabCursor: true,
+      loop: true,
+      cubeEffect: {
+        shadow: true,
+        slideShadows: true,
+        shadowOffset: 20,
+        shadowScale: 0.94,
+      },
+      autoplay: {
+        delay: 10000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+      },
+      // 添加事件监听器
+      on: {
+        slideChange: function () {
+          // 获取当前激活的幻灯片元素
+          var currentSlide = this.slides[this.activeIndex ];
+          // 获取当前幻灯片中的<img>元素
+          var currentImage = currentSlide.querySelector('img');
+          // 获取图片路径
+          var currentImagePath = currentImage.src;
+          console.log(currentImagePath);
+          // 设置背景
+          console.log(document.querySelector(".bg").style.background);
+          document.querySelector(".bg").style.background ="url(" + currentImagePath + ") no-repeat center center / cover";
+        },
+      },
+    });
+  </script>
+</body>
+
+</html>
