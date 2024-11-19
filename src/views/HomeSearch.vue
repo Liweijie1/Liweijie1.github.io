@@ -1,6 +1,6 @@
 <template>
   <div class="homeSearch">
-    456
+    <input type="text">
   </div>
 </template>
 

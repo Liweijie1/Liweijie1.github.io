@@ -5,7 +5,7 @@
       <router-link to="/hot">热歌榜</router-link> |
       <router-link to="/search">搜索</router-link>
     </nav>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
