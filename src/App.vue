@@ -1,8 +1,9 @@
 <template>
   <div id="app">
     <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/">推荐音乐</router-link> |
+      <router-link to="/hot">热歌榜</router-link> |
+      <router-link to="/search">搜索</router-link>
     </nav>
     <router-view/>
   </div>
