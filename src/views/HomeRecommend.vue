@@ -14,6 +14,7 @@
       <MusicItemCard
         v-for="item in latestMusicData"
         :key="item.id"
+        :musicId="item.id"
         :musicName="item.name"
         :singer="
           item.song.artists.length == 1
@@ -21,6 +22,7 @@
             : item.song.artists[0].name + ` / ` + item.song.artists[1].name
         "
         :albumName="item.song.album.name"
+        @play-this-song="$emit('play-this-song', item.id)"
       ></MusicItemCard>
     </ul>
   </div>
@@ -41,9 +43,10 @@ export default {
     EditorRecommendCard,
     MusicItemCard,
   },
+
   created() {
     this.axios
-      .get("https://apic.netstart.cn/music/personalized")
+      .get("/personalized")
       .then((res) => {
         this.EditorRecommendData = res.data.result.slice(0, 6);
       })
@@ -51,7 +54,7 @@ export default {
         console.log("编辑推荐出错", err);
       });
     this.axios
-      .get("https://apic.netstart.cn/music/personalized/newsong")
+      .get("/personalized/newsong")
       .then((res) => {
         this.latestMusicData = res.data.result;
       })
@@ -64,10 +67,7 @@ export default {
 
 <style lang="less" scoped>
 .homeRecommend {
-  * {
-    margin: 0;
-    padding: 0;
-  }
+  margin-bottom: 60px;
   ul,
   li {
     list-style: none;

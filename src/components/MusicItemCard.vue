@@ -1,5 +1,7 @@
 <template>
-  <li class="musicItemCard">
+  <li class="musicItemCard"
+   @click="setCurrentSongId()"
+  >
     <div class="left">
       <p class="musicName">{{musicName}}</p>
       <p>{{singer}} - {{albumName}}</p>
@@ -10,7 +12,12 @@
 
 <script>
 export default {
-  props:['musicName','albumName','singer']
+  props:['musicName','albumName','singer','musicId'],
+  methods:{
+    setCurrentSongId(){
+      this.$emit('play-this-song')
+    },
+  },
 }
 </script>
 
@@ -24,11 +31,13 @@ export default {
     p{
       padding: 0;
       margin: 0;
+      text-align: left;
       &.musicName{
         padding: 0;
         margin: 0;
         font-weight: 600;
       }
+      
     }
     img{
       width: 30px;

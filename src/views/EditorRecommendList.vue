@@ -6,12 +6,13 @@
     <section v-else-if="playlist" class="playlist">
       <header>
         <div class="left">
+          <button @click="$router.back()">返回</button>
           <img :src="coverImgUrl" />
         </div>
         <div class="right">
           <p>{{ playlistName }}</p>
-          <img :src="creatorImg">
-          <span>{{creatorName}}</span>
+          <img :src="creatorImg" />
+          <span>{{ creatorName }}</span>
         </div>
       </header>
       <section>
@@ -22,6 +23,7 @@
             :musicName="item.name"
             :singer="item.ar[0].name"
             :albumName="item.al.name"
+            @play-this-song="$emit('play-this-song', item.id)"
           ></MusicItemCard>
         </ol>
       </section>
@@ -48,7 +50,7 @@ export default {
   created() {
     if (this.$route.query.id) {
       this.axios
-        .get("https://apis.netstart.cn/music/playlist/detail", {
+        .get("/playlist/detail", {
           params: { id: this.$route.query.id },
         })
         .then((res) => {
@@ -57,7 +59,10 @@ export default {
           this.coverImgUrl = res.data.playlist.coverImgUrl;
           this.tracks = res.data.playlist.tracks;
           this.creatorName = res.data.playlist.creator.nickname;
-          this.creatorImg  = res.data.playlist.creator.avatarUrl;
+          this.creatorImg = res.data.playlist.creator.avatarUrl;
+        })
+        .catch((err) => {
+          console.log("编辑推荐列表出错", err);
         });
     } else {
       this.tip = "路由参数错误";
@@ -68,6 +73,7 @@ export default {
 
 <style lang="less" scoped>
 .editorRecommendList {
+  margin-bottom: 60px;
   .playlist {
     header {
       display: flex;
@@ -81,7 +87,7 @@ export default {
       .right {
         width: 55%;
         text-align: left;
-        img{
+        img {
           width: 30px;
           height: 30px;
           border-radius: 50%;
