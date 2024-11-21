@@ -35,7 +35,8 @@ const routes = [
   {
     path: '/songDetail',
     name: 'songDetail',
-    component: SongDetail
+    component: SongDetail,
+    meta : {hidePlayBar : true}
   },
   
 ]

@@ -15,6 +15,8 @@
         v-for="item in latestMusicData"
         :key="item.id"
         :musicId="item.id"
+        :currentSongId="currentSongId"
+        :playing="playing"
         :musicName="item.name"
         :singer="
           item.song.artists.length == 1
@@ -39,11 +41,14 @@ export default {
       singer: [],
     };
   },
+  props: ["currentSongId", "playing"],
+
   components: {
     EditorRecommendCard,
     MusicItemCard,
   },
-
+  methods: {
+  },
   created() {
     this.axios
       .get("/personalized")

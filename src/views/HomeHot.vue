@@ -4,6 +4,9 @@
       <MusicItemCard
       v-for="item in hotData"
       :key="item.id"
+      :musicId="item.id"
+      :currentSongId="currentSongId"
+      :playing="playing"
       :musicName="item.name"
       :singer="item.ar[0].name"
       :albumName="item.al.name"
@@ -22,6 +25,7 @@ export default {
       hotData: null,
     };
   },
+  props:['currentSongId', "playing"],
   components:{
     MusicItemCard,
   },

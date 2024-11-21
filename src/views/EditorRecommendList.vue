@@ -20,8 +20,15 @@
           <MusicItemCard
             v-for="item in tracks"
             :key="item.id"
+            :musicId="item.id"
+            :currentSongId="currentSongId"
+            :playing="playing"
             :musicName="item.name"
-            :singer="item.ar[0].name"
+            :singer="
+              item.ar.length == 1
+                ? item.ar[0].name
+                : item.ar[0].name + '/' + item.ar[1].name
+            "
             :albumName="item.al.name"
             @play-this-song="$emit('play-this-song', item.id)"
           ></MusicItemCard>
@@ -44,6 +51,7 @@ export default {
       creatorName: null,
     };
   },
+  props:['currentSongId', "playing"],
   components: {
     MusicItemCard,
   },
