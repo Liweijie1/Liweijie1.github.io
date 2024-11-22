@@ -6,7 +6,11 @@
   >
     <header>
       <img :src="`${editItem.picUrl}?imageView=1&type=webp&thumbnail=246x0`" />
-      <span>{{ editItem.id }}</span>
+      <p class="playCount">
+        <img src="@/assets/Headset.png">
+        <span>{{ (editItem.playCount / 10000).toFixed(1) + "万" }}</span>
+      </p>
+      
     </header>
     <footer>
       <p>{{ editItem.name }}</p>
@@ -45,11 +49,22 @@ export default {
     img {
       width: 100%;
     }
-    span {
+    .playCount {
+      width: 100px;
+      height: 18px;
+      display: flex;
+      justify-content: right;
+      align-items: center;
       position: absolute;
-      top: 0;
-      right: 0;
+      top: 2px;
+      right: 5px;
+      font-size: 12px;
       color: white;
+      img{
+        width: 12px;
+        height: 12px;
+        display: block;
+      }
     }
   }
   footer {

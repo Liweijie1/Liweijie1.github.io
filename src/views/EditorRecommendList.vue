@@ -6,8 +6,10 @@
     <section v-else-if="playlist" class="playlist">
       <header>
         <div class="left">
-          <button @click="$router.back()">返回</button>
-          <img :src="coverImgUrl" />
+          <div class="toBottom" @click="$router.back()">
+            <img src="@/assets/toBottom.png" />
+          </div>
+          <img class="coverImg" :src="coverImgUrl" />
         </div>
         <div class="right">
           <p>{{ playlistName }}</p>
@@ -51,7 +53,7 @@ export default {
       creatorName: null,
     };
   },
-  props:['currentSongId', "playing"],
+  props: ["currentSongId", "playing"],
   components: {
     MusicItemCard,
   },
@@ -86,15 +88,32 @@ export default {
     header {
       display: flex;
       justify-content: space-around;
+      color: white;
+      background: linear-gradient(to top, #29313c, #475669);
       .left {
         width: 35%;
-        img {
+        white-space: nowrap;
+        overflow: hidden;
+        text-emphasis: emphasis;
+        .toBottom{
+          height: 30px;
+          img{
+            width: 20px;
+            height: 20px;
+          }
+        }
+        .coverImg {
           width: 100%;
         }
       }
       .right {
         width: 55%;
         text-align: left;
+        margin-top: 50px;
+        p{
+          display: -webkit-box;
+          -webkit-box-orient: vertical0;
+        }
         img {
           width: 30px;
           height: 30px;

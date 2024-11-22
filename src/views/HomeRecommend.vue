@@ -1,6 +1,7 @@
 <template>
   <div class="homeRecommend">
-    <h1>编辑推荐</h1>
+    <img class="headerImg" src="@/assets/recommend1.png" />
+    <span class="title">编辑推荐</span>
     <ul class="editorRecommends">
       <EditorRecommendCard
         v-for="item in EditorRecommendData"
@@ -9,7 +10,7 @@
         :col="3"
       ></EditorRecommendCard>
     </ul>
-    <h1>最新音乐</h1>
+    <span class="title">最新音乐</span>
     <ul class="latestMusic">
       <MusicItemCard
         v-for="item in latestMusicData"
@@ -47,8 +48,7 @@ export default {
     EditorRecommendCard,
     MusicItemCard,
   },
-  methods: {
-  },
+  methods: {},
   created() {
     this.axios
       .get("/personalized")
@@ -73,10 +73,38 @@ export default {
 <style lang="less" scoped>
 .homeRecommend {
   margin-bottom: 60px;
+  background: #FCFCFD;
+  
+  .headerImg {
+    width: 100%;
+    height: 60px;
+  }
+
+  .title {
+    width: 100%;
+    height: 40px;
+    display: block;
+    line-height: 40px;
+    padding-left: 9px;
+    box-sizing: border-box;
+    position: relative;
+    &::before {
+      content:'';
+      position: absolute;
+      left: 0;
+      top: 40%;
+      margin-top: -9px;
+      width: 2px;
+      height: 16px;
+      background-color: #d33a31;
+    }
+  }
+
   ul,
   li {
     list-style: none;
   }
+
   .editorRecommends {
     display: flex;
     flex-wrap: wrap;

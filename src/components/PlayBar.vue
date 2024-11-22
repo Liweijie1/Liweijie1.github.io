@@ -1,6 +1,6 @@
 <template>
   <div v-if="playBarData" class="playBar" @click="gotoSongDetail">
-    <img class="musicPic" :src="picUrl" />
+    <img class="musicPic" :class="{anima : playing} " :src="picUrl" />
     <div class="introduce">{{ musicName }}-{{ singer }}</div>
     <button v-if="playing" @click.stop="$emit('pause-play-song')">暂停</button>
     <button v-else @click.stop="$emit('start-play-song')">播放</button>
@@ -47,7 +47,8 @@ export default {
           id:this.currentSongId
         }
       })
-    }
+    },
+
   },
   watch: {
     currentSongId() {
@@ -71,11 +72,25 @@ export default {
   justify-content: space-around;
   align-items: center;
 
+  @keyframes rotateAnima {
+    0%{
+      transform: rotate(0deg);
+    }
+    100%{
+      transform: rotate(360deg);
+    }
+  }
+
   .musicPic {
     width: 35px;
     height: 35px;
     border-radius: 50%;
     border: 5px solid #000;
+    animation: rotateAnima 3s linear infinite;
+    animation-play-state: paused;
+    &.anima{
+      animation-play-state: running;
+    }
   }
 
   .introduce {

@@ -6,7 +6,7 @@
   >
     <div class="left">
       <p class="musicName">{{ musicName }}</p>
-      <p>{{ singer }} - {{ albumName }}</p>
+      <p class="singer">{{ singer }} - {{ albumName }}</p>
     </div>
     <img v-if="musicId !== currentSongId" src="@/assets/play.png" />
     <div v-else class="anima" :class="{ playing: playing }">
@@ -39,6 +39,7 @@ export default {
 <style lang="less" scoped>
 .musicItemCard {
   height: 55px;
+  margin-left: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -47,29 +48,41 @@ export default {
   &.active {
     background: rgb(148, 174, 255);
   }
-  p {
-    padding: 0;
-    margin: 0;
-    text-align: left;
-    &.musicName {
-      padding: 0;
-      margin: 0;
-      font-weight: 600;
+
+  .left {
+    width: 60%;
+    p {
+      text-align: left;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      &.musicName {
+        font-size: 17px;
+        color: #333;
+      }
+
+      &.singer {
+        font-size: 12px;
+        color: #888;
+      }
     }
   }
+
   img {
-    width: 30px;
-    height: 30px;
+    width: 22px;
+    height: 22px;
+    margin-left: 10px;
   }
 
   @keyframes anima {
-      0% {
-        transform: scaleY(1);
-      }
-      100% {
-        transform: scaleY(0);
-      }
+    0% {
+      transform: scaleY(1);
     }
+    100% {
+      transform: scaleY(0);
+    }
+  }
 
   .anima {
     width: 22px;

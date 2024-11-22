@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <header>
+    <header v-if="$route.meta.showNav">
       <div class="left">
         <div class="imgBox">
           <img src="@/assets/wyylogo.png" />

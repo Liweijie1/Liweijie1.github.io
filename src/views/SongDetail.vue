@@ -1,12 +1,20 @@
 <template>
   <div class="songDetail">
-    <button @click="$router.back()">返回</button>
-    <h3>SongDetail - {{ $route.query.id }}</h3>
-    <p>{{ musicName }}</p>
-    <p>{{ singer }}</p>
+    <header>
+      <div class="toBottom" @click="$router.back()">
+        <img src="@/assets/toBottom.png" />
+      </div>
+    </header>
+
     <img class="musicPic" :class="{ play: playing }" :src="musicPic" />
 
-    <div class="progress">
+    <section class="info">
+      <div class="left">
+        <span class="musicName">{{ musicName }}</span>
+        <span class="singer">{{ singer }}</span>
+      </div>
+    </section>
+    <div class="progress" :class="{scale : inputing}">
       <div
         class="mask"
         :style="{ width: (userValue / duration) * 100 + '%' }"
@@ -22,15 +30,20 @@
           $emit('change-play-time', userValue);
         "
       />
-      
     </div>
     <div class="time">
       <span>{{ currentTime | formatTime }}</span>
       <span>{{ duration | formatTime }}</span>
     </div>
 
-    <button v-if="playing" @click.stop="$emit('pause-play-song')">暂停</button>
-    <button v-else @click.stop="$emit('start-play-song')">播放</button>
+    <footer>
+      <img src="@/assets/roop.png">
+      <img src="@/assets/before.png">
+      <img v-if="playing" @click.stop="$emit('pause-play-song')" src="@/assets/pause.png">
+      <img v-else @click.stop="$emit('start-play-song')" src="@/assets/play2.png">
+      <img src="@/assets/next.png">
+      <img src="@/assets/list.png">
+    </footer>
   </div>
 </template>
 
@@ -52,12 +65,12 @@ export default {
     currentTime: Number,
     duration: Number,
   },
-  watch:{
-    currentTime(){
-      if(!this.inputing){
-        this.userValue = this.currentTime
+  watch: {
+    currentTime() {
+      if (!this.inputing) {
+        this.userValue = this.currentTime;
       }
-    }
+    },
   },
   created() {
     if (this.$route.query.id) {
@@ -89,6 +102,25 @@ export default {
 
 <style lang="less" scoped>
 .songDetail {
+  height: 100vh;
+  background: linear-gradient(to top, #29313c, #475669);
+
+  header {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    .toBottom {
+      width: 30px;
+      height: 30px;
+      margin-left: 20px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
   @keyframes rotateAnima {
     0% {
       transform: rotate(0deg);
@@ -102,7 +134,9 @@ export default {
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    border: 10px solid #000;
+    border: 30px solid #000;
+    display: block;
+    margin: 36px auto;
     animation: rotateAnima 3s linear infinite;
     animation-play-state: paused;
 
@@ -111,32 +145,91 @@ export default {
     }
   }
 
+  .info {
+    width: 100%;
+    height: 60px;
+    margin: 50px auto 5px;
+    .left {
+      width: 60%;
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      .musicName {
+        font-size: 24px;
+        color: #bfc1c2;
+        display: block;
+      }
+      .singer {
+        font-size: 16px;
+        color: #949ea7;
+        display: block;
+      }
+    }
+  }
+
   .progress {
     width: 98%;
-    height: 30px;
+    height: 3px;
     margin: 5px auto;
     box-sizing: border-box;
-    border: 1px solid #000;
+    background: rgba(255, 255, 255, 0.575);
     position: relative;
     input {
       width: 100%;
+      opacity: 0;
     }
     .mask {
       width: 20px;
-      height: 10px;
-      background: red;
+      height: 3px;
+      background: rgba(255, 255, 255, 0.844);
       position: absolute;
       bottom: 0;
+      z-index: 0;
+      position: relative;
+
+      &::after {
+        content: "";
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.844);
+        display: block;
+        position: absolute;
+        top: -2px;
+        right: -2px;
+      }
+    }
+
+    &.scale{
+      transform: scaleY(2);
+      .mask::after {
+        transform: scaleX(2);
+      }
     }
   }
 
   .time {
     width: 98%;
     height: 30px;
+    color: rgb(96, 242, 255);
     margin: 5px auto;
     display: flex;
     justify-content: space-between;
     line-height: 30px;
+  }
+
+  footer{
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    img{
+      width: 30px;
+      &:nth-child(3){
+        width: 40px;
+      }
+    }
   }
 }
 </style>
