@@ -1,7 +1,7 @@
 <template>
   <div class="songDetail">
     <header>
-      <div class="toBottom" @click="$router.back()">
+      <div class="toBottom" @click="$router.replace({ path: '/' })">
         <img src="@/assets/toBottom.png" />
       </div>
     </header>
@@ -132,6 +132,26 @@ export default {
         this.userValue = this.currentTime;
       }
     },
+    currentSongId(){
+      this.axios
+      .get("/song/detail", {
+        params: {
+          ids: this.currentSongId,
+        },
+      })
+      .then((res) => {
+        this.song = res.data.songs[0];
+        this.musicPic = this.song.al.picUrl;
+        this.musicName = this.song.name;
+        this.singer =
+          this.song.ar.length == 1
+            ? this.song.ar[0].name
+            : this.song.ar[0].name + "/" + this.song.ar[1].name;
+      })
+      .catch((err) => {
+        console.log("歌曲详情页", err);
+      });
+    }
   },
   created() {
     if (this.$route.query.id) {

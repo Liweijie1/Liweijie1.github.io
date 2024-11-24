@@ -1,12 +1,11 @@
 <template>
   <div class="lyricAndImg" :class="{ play: playing }">
     <div class="alImg" @click="scrollToLyric" ref="alImg">
-      <img
-        v-if="musicPic"
-        class="musicPic"
-        :class="{ play: playing }"
-        :src="musicPic"
-      />
+
+      <img class="recordTwo" :class="{ play: playing }" src="@/assets/record2.png">
+      <div class="musicPic" :class="{ play: playing }">
+        <img v-if="musicPic" :src="musicPic" />
+      </div>
     </div>
 
     <div
@@ -215,6 +214,7 @@ export default {
     flex-shrink: 0;
     box-sizing: border-box;
     scroll-snap-align: start;
+    position: relative;
 
     @keyframes rotateAnima {
       0% {
@@ -225,15 +225,44 @@ export default {
       }
     }
 
+    .recordTwo{
+      width: 120px;
+      height: 120px;
+      position: absolute;
+      top: 28px;
+      left: 50%;
+      margin-left: -60px;
+      z-index: 2;
+      transition: transform 1s;
+      transform-origin: center top;
+      transform: rotate(-30deg);
+      &.play{
+        transform: rotate(0deg);
+      }
+    }
+
     .musicPic {
-      width: 200px;
-      height: 200px;
+      width: 260px;
+      height: 260px;
       border-radius: 50%;
-      border: 30px solid #000;
-      display: block;
-      margin: 36px auto;
+      background: url('@/assets/record1.png') center;
+      background-size: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin:auto;
       animation: rotateAnima 3s linear infinite;
       animation-play-state: paused;
+      position: absolute;
+      top: 100px;
+      left: 50%;
+      margin-left: -130px;
+
+      img{
+        width: 166px;
+        height: 166px;
+        border-radius: 50%;
+      }
 
       &.play {
         animation-play-state: running;
@@ -277,7 +306,7 @@ export default {
         }
 
         span {
-          font-size: 16px;
+          font-size: 20px;
           line-height: 32px;
           color: white;
           display: inline-block;
@@ -290,7 +319,7 @@ export default {
 
         &.active {
           span {
-            font-size: 26px;
+            font-size: 30px;
             line-height: 60px;
             white-space: nowrap;
             animation: lyricAnima linear;

@@ -32,6 +32,16 @@
         @play-this-song="$emit('play-this-song', item.id)"
       ></MusicItemCard>
     </ul>
+    <footer>
+      <div class="logo">
+        <img src="@/assets/wyylogo2.png" />
+        网易云音乐
+      </div>
+      <div class="open">打开APP,发现更多好音乐 ></div>
+      <div class="copyright">
+        网易公司版权所有©1997-2024 杭州乐读科技有限公司运营
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -104,15 +114,50 @@ export default {
     }
   }
 
-  ul,
-  li {
-    list-style: none;
-  }
-
   .editorRecommends {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+  }
+
+  .latestMusic {
+    padding: 0 20px;
+    margin-top: 5px;
+  }
+
+  footer {
+    width: 100%;
+    height: 200px;
+    background: url("@/assets/reCommendBackground.png") center;
+    background-size: 100%;
+    .logo {
+      height: 40px;
+      padding: 64px 0 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 40px;
+      img {
+        width: 40px;
+        height: 40px;
+      }
+    }
+    .open {
+      width: 300px;
+      height: 38px;
+      color: rgb(250, 65, 65);
+      line-height: 38px;
+      text-align: center;
+      margin: 15px auto;
+      border-radius: 38px;
+      border: 1px solid rgb(250, 65, 65);
+    }
+    .copyright {
+      color: #888;
+      font-size: 12px;
+      line-height: 16px;
+      text-align: center;
+    }
   }
 }
 </style>

@@ -96,6 +96,11 @@ export default {
 
 
 <style lang="less" scoped>
+ul,
+li{
+  padding: 0;
+  margin: 0;
+}
 #app {
   header {
     width: 100%;
@@ -106,7 +111,6 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-radius: 15px 15px 0 0;
 
     .left {
       display: flex;

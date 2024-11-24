@@ -16,12 +16,14 @@
         :singer="
           (item?.song?.artists?.length == 1
             ? item?.song?.artists[0]?.name
-            : item?.song?.artists[0]?.name + ` / ` + item?.song?.artists[1]?.name) ||
+            : item?.song?.artists[0]?.name +
+              ` / ` +
+              item?.song?.artists[1]?.name) ||
           (item?.ar?.length == 1
             ? item?.ar[0]?.name
             : item?.ar[0]?.name + '/' + item?.ar[1]?.name)
         "
-        :albumName="(item?.song?.album?.name) || (item?.al?.name)"
+        :albumName="item?.song?.album?.name || item?.al?.name"
         @play-this-song="$emit('play-this-song', item.id)"
       ></MusicItemCard>
     </ul>
@@ -39,32 +41,46 @@ export default {
   components: {
     MusicItemCard,
   },
-    
 };
 </script>
 
 <style lang="less" scoped>
+@property --direc {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes backgroungRotate {
+  to {
+    --direc: 360deg;
+  }
+}
+
 .songListCard {
   width: 100%;
   height: 60%;
-  padding: 0 20px;
+  padding:10px ;
   box-sizing: border-box;
   overflow-y: auto;
   position: fixed;
   bottom: 0;
-  background: blueviolet;
+  border-radius: 5px;
+  background-image: linear-gradient(
+      var(--direc),
+      #5ddcff,
+      #3c67e3 43%,
+      #4e00c2
+    );
+    animation: backgroungRotate 3s linear infinite;
   header {
     width: 100%;
-    height: 50px;
+    height: 30px;
     display: flex;
     align-items: center;
-    background: linear-gradient(to top, #5099ff, #7316ff);
-    position: sticky;
-    top: 0;
     .toBottom {
       width: 30px;
       height: 30px;
-      margin-left: 20px;
       img {
         width: 100%;
         height: 100%;
@@ -72,7 +88,8 @@ export default {
     }
   }
   .songListContent {
-    background: red;
+    padding: 0;
+    background: white;
   }
 }
 </style>

@@ -82,6 +82,11 @@ export default {
 </script>
 
 <style lang="less" scoped>
+ul,
+li{
+  padding: 0;
+  margin: 0;
+}
 .editorRecommendList {
   margin-bottom: 60px;
   .playlist {

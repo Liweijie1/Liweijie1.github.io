@@ -1,5 +1,10 @@
 <template>
   <div class="homeHot">
+    <header>
+      <div>云音乐</div>
+      <div class="hotImg"></div>
+      <div class="upDate">更新日期:11月24日</div>
+    </header>
     <ol v-if="hotData" @click="$emit('change-song-list', hotData)">
       <MusicItemCard
         v-for="item in hotData"
@@ -42,7 +47,29 @@ export default {
 </script>
 
 <style lang="less" scoped>
+ul,
+li {
+  padding: 0;
+  margin: 0;
+}
 .homeHot {
   margin-bottom: 60px;
+  header {
+    height: 147px;
+    background: url("@/assets/hotBackground.jpg") center;
+    background-size: 100%;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    .hotImg {
+      background: url("@/assets/sq.png") no-repeat -24px -45px;
+      background-size: 116%;
+      width: 142px;
+      height: 67px;
+    }
+    .upDate{
+      font-size: 12px;
+    }
+  }
 }
 </style>
