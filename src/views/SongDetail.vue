@@ -6,7 +6,13 @@
       </div>
     </header>
 
-    <img class="musicPic" :class="{ play: playing }" :src="musicPic" />
+    <LyricAndImg
+      :playing="playing"
+      :musicPic="musicPic"
+      :currentTime="currentTime"
+      :duration="duration"
+      @start-play-song="$emit('start-play-song')"
+    ></LyricAndImg>
 
     <section class="info">
       <div class="left">
@@ -14,7 +20,7 @@
         <span class="singer">{{ singer }}</span>
       </div>
     </section>
-    <div class="progress" :class="{scale : inputing}">
+    <div class="progress" :class="{ scale: inputing }">
       <div
         class="mask"
         :style="{ width: (userValue / duration) * 100 + '%' }"
@@ -37,18 +43,30 @@
     </div>
 
     <footer>
-      <img src="@/assets/roop.png">
-      <img src="@/assets/before.png">
-      <img v-if="playing" @click.stop="$emit('pause-play-song')" src="@/assets/pause.png">
-      <img v-else @click.stop="$emit('start-play-song')" src="@/assets/play2.png">
-      <img src="@/assets/next.png">
-      <img src="@/assets/list.png">
+      <img src="@/assets/roop.png" />
+      <img src="@/assets/before.png" />
+      <img
+        v-if="playing"
+        @click.stop="$emit('pause-play-song')"
+        src="@/assets/pause.png"
+      />
+      <img
+        v-else
+        @click.stop="$emit('start-play-song')"
+        src="@/assets/play2.png"
+      />
+      <img src="@/assets/next.png" />
+      <img src="@/assets/list.png" />
     </footer>
   </div>
 </template>
 
 <script>
+import LyricAndImg from "@/components/LyricAndImg.vue";
 export default {
+  components: {
+    LyricAndImg,
+  },
   data() {
     return {
       song: null,
@@ -107,7 +125,7 @@ export default {
 
   header {
     width: 100%;
-    height: 100px;
+    height: 50px;
     display: flex;
     align-items: center;
     .toBottom {
@@ -121,34 +139,10 @@ export default {
     }
   }
 
-  @keyframes rotateAnima {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-
-  .musicPic {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    border: 30px solid #000;
-    display: block;
-    margin: 36px auto;
-    animation: rotateAnima 3s linear infinite;
-    animation-play-state: paused;
-
-    &.play {
-      animation-play-state: running;
-    }
-  }
-
   .info {
     width: 100%;
     height: 60px;
-    margin: 50px auto 5px;
+    margin: 20px auto 5px;
     .left {
       width: 60%;
       width: 100%;
@@ -180,7 +174,7 @@ export default {
       opacity: 0;
     }
     .mask {
-      width: 20px;
+      width: 0px;
       height: 3px;
       background: rgba(255, 255, 255, 0.844);
       position: absolute;
@@ -201,7 +195,7 @@ export default {
       }
     }
 
-    &.scale{
+    &.scale {
       transform: scaleY(2);
       .mask::after {
         transform: scaleX(2);
@@ -219,14 +213,14 @@ export default {
     line-height: 30px;
   }
 
-  footer{
-    margin-top: 50px;
+  footer {
+    margin-top: 10px;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    img{
+    img {
       width: 30px;
-      &:nth-child(3){
+      &:nth-child(3) {
         width: 40px;
       }
     }

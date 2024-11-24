@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" width="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 让ul元素出现垂直滚动条，并且隐藏超出部分 */
+       .scroll-ul {
+            height: 200px; /* 根据你期望的可视区域高度来设置，这里假设为200px */
+            overflow-y: scroll; 
+            /* 设置滚动时的上边距，让内容不是从最顶部开始滚动，而是从中间偏上一点的位置开始滚动，这里取列表高度一半左右的值，可根据实际情况调整 */
+            scroll-margin-top: 250vh; 
+            /* 为了美观可以添加一些其它样式，比如去除默认的列表样式等 */
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul class="scroll-ul">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+            <li>10</li>
+            <li>11</li>
+            <li>12</li>
+            <li>13</li>
+            <li>14</li>
+            <li>15</li>
+            <li>16</li>
+            <li>17</li>
+            <li>18</li>
+            <li>19</li>
+            <li>20</li>
+        </ul>
+    </div>
+</body>
+
+</html>

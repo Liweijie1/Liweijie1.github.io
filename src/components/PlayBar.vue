@@ -1,10 +1,28 @@
 <template>
   <div v-if="playBarData" class="playBar" @click="gotoSongDetail">
-    <img class="musicPic" :class="{anima : playing} " :src="picUrl" />
-    <div class="introduce">{{ musicName }}-{{ singer }}</div>
-    <button v-if="playing" @click.stop="$emit('pause-play-song')">暂停</button>
-    <button v-else @click.stop="$emit('start-play-song')">播放</button>
-    <button>列表</button>
+    <div class="left">
+      <img class="musicPic" :class="{ anima: playing }" :src="picUrl" />
+      <div
+        class="introduce"
+      >
+        <span :class="{ long: musicName.length + singer.length > 12 }">
+          {{ musicName }}-{{ singer }}
+        </span>
+      </div>
+    </div>
+    <div class="right">
+      <img
+        v-if="playing"
+        @click.stop="$emit('pause-play-song')"
+        src="@/assets/pause2.png"
+      />
+      <img
+        v-else
+        @click.stop="$emit('start-play-song')"
+        src="@/assets/play3.png"
+      />
+      <img src="@/assets/list2.png" />
+    </div>
   </div>
 </template>
 
@@ -18,7 +36,7 @@ export default {
       musicName: null,
     };
   },
-  props: ["currentSongId","playing"],
+  props: ["currentSongId", "playing"],
   methods: {
     requestPlayBarData() {
       this.axios
@@ -40,15 +58,14 @@ export default {
           console.log("playBarData", err);
         });
     },
-    gotoSongDetail(){
+    gotoSongDetail() {
       this.$router.push({
-        path:"/songDetail",
-        query:{
-          id:this.currentSongId
-        }
-      })
+        path: "/songDetail",
+        query: {
+          id: this.currentSongId,
+        },
+      });
     },
-
   },
   watch: {
     currentSongId() {
@@ -73,30 +90,64 @@ export default {
   align-items: center;
 
   @keyframes rotateAnima {
-    0%{
+    0% {
       transform: rotate(0deg);
     }
-    100%{
+    100% {
       transform: rotate(360deg);
     }
   }
 
-  .musicPic {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    border: 5px solid #000;
-    animation: rotateAnima 3s linear infinite;
-    animation-play-state: paused;
-    &.anima{
-      animation-play-state: running;
+  .left {
+    width: 65%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    .musicPic {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      border: 5px solid #000;
+      margin: 0 10px;
+      animation: rotateAnima 3s linear infinite;
+      animation-play-state: paused;
+      &.anima {
+        animation-play-state: running;
+      }
+    }
+
+    @keyframes nameLoop {
+      0% {
+        transform: translateX(0%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    .introduce {
+      width: 125px;
+      white-space: nowrap;
+      overflow: hidden;
+
+      .long{
+        display: block;
+        animation: nameLoop 3s infinite;
+      }
     }
   }
 
-  .introduce {
+  .right {
     width: 30%;
-    white-space: nowrap;
-    overflow: hidden;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    img {
+      width: 30px;
+      height: 30px;
+    }
   }
 }
 </style>
