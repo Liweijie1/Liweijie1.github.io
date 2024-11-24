@@ -50,6 +50,7 @@
 <script>
 export default {
   props: {
+    currentSongId: Number,
     playing: Boolean,
     musicPic: String,
     currentTime: Number,
@@ -101,6 +102,15 @@ export default {
         this.autoScroll = true;
       }, 1000);
     },
+    updateRoute(songId) {
+      if (this.$route.query.id !== songId) {
+        this.$router.push({ query: { id: songId } }).catch((err) => {
+          if (err.name !== "NavigationDuplicated") {
+            throw err;
+          }
+        });
+      }
+    },
   },
 
   watch: {
@@ -125,6 +135,29 @@ export default {
       if (this.currentTime == this.duration) {
         this.$emit("start-play-song");
       }
+    },
+    currentSongId(newId) {
+      if (this.$route.query.id !== newId) {
+        this.updateRoute(newId);
+      }
+
+      this.axios
+        .get("/lyric", {
+          params: {
+            id: this.$route.query.id,
+          },
+        })
+        .then((res) => {
+          this.lyric = res.data.lrc.lyric;
+          this.$nextTick(() => {
+            this.lyricElementsHeight = this.$refs.lyricElements.map(
+              (ele) => ele.offsetHeight
+            );
+          });
+        })
+        .catch((err) => {
+          console.log("歌词请求失败", err);
+        });
     },
   },
 

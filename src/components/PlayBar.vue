@@ -21,7 +21,7 @@
         @click.stop="$emit('start-play-song')"
         src="@/assets/play3.png"
       />
-      <img src="@/assets/list2.png" />
+      <img src="@/assets/list2.png" @click.stop="$emit('open-songList')"/>
     </div>
   </div>
 </template>
@@ -131,8 +131,8 @@ export default {
       overflow: hidden;
 
       .long{
-        display: block;
-        animation: nameLoop 3s infinite;
+        display: inline-block;
+        animation: nameLoop 5s infinite;
       }
     }
   }

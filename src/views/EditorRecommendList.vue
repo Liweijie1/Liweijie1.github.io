@@ -18,7 +18,7 @@
         </div>
       </header>
       <section>
-        <ol v-if="tracks">
+        <ol v-if="tracks" @click="$emit('change-song-list', tracks)">
           <MusicItemCard
             v-for="item in tracks"
             :key="item.id"

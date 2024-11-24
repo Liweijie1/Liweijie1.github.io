@@ -7,6 +7,8 @@
     </header>
 
     <LyricAndImg
+      :key="$route.fullPath"
+      :currentSongId="currentSongId"
       :playing="playing"
       :musicPic="musicPic"
       :currentTime="currentTime"
@@ -44,7 +46,7 @@
 
     <footer>
       <img src="@/assets/roop.png" />
-      <img src="@/assets/before.png" />
+      <img src="@/assets/before.png" @click="playPreviousSong" />
       <img
         v-if="playing"
         @click.stop="$emit('pause-play-song')"
@@ -55,8 +57,8 @@
         @click.stop="$emit('start-play-song')"
         src="@/assets/play2.png"
       />
-      <img src="@/assets/next.png" />
-      <img src="@/assets/list.png" />
+      <img src="@/assets/next.png" @click="playNextSong" />
+      <img src="@/assets/list.png" @click.stop="$emit('open-songList')" />
     </footer>
   </div>
 </template>
@@ -82,6 +84,47 @@ export default {
     currentSongId: Number,
     currentTime: Number,
     duration: Number,
+    songIdList: Array,
+  },
+  methods: {
+    playPreviousSong() {
+      const currentIndex = this.songIdList.indexOf(this.currentSongId);
+      if (currentIndex > 0) {
+        const newSongId = this.songIdList[currentIndex - 1];
+        this.$emit("change-currentSongId", newSongId);
+        this.fetchSongDetail(newSongId);
+        this.$emit("play-this-song", newSongId);
+      }
+    },
+    playNextSong() {
+      const currentIndex = this.songIdList.indexOf(this.currentSongId);
+      if (currentIndex < this.songIdList.length - 1) {
+        const newSongId = this.songIdList[currentIndex + 1];
+        this.$emit("change-currentSongId", newSongId);
+        this.fetchSongDetail(newSongId);
+        this.$emit("play-this-song", newSongId);
+      }
+    },
+    fetchSongDetail(songId) {
+      this.axios
+        .get("/song/detail", {
+          params: {
+            ids: songId,
+          },
+        })
+        .then((res) => {
+          this.song = res.data.songs[0];
+          this.musicPic = this.song.al.picUrl;
+          this.musicName = this.song.name;
+          this.singer =
+            this.song.ar.length == 1
+              ? this.song.ar[0].name
+              : this.song.ar[0].name + "/" + this.song.ar[1].name;
+        })
+        .catch((err) => {
+          console.log("获取歌曲详情失败", err);
+        });
+    },
   },
   watch: {
     currentTime() {

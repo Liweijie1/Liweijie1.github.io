@@ -1,17 +1,21 @@
 <template>
   <div class="homeHot">
-    <ol>
+    <ol v-if="hotData" @click="$emit('change-song-list', hotData)">
       <MusicItemCard
-      v-for="item in hotData"
-      :key="item.id"
-      :musicId="item.id"
-      :currentSongId="currentSongId"
-      :playing="playing"
-      :musicName="item.name"
-      :singer="item.ar[0].name"
-      :albumName="item.al.name"
-      @play-this-song="$emit('play-this-song',item.id)"
-    ></MusicItemCard>
+        v-for="item in hotData"
+        :key="item.id"
+        :musicId="item.id"
+        :currentSongId="currentSongId"
+        :playing="playing"
+        :musicName="item.name"
+        :singer="
+          item.ar.length == 1
+            ? item.ar[0].name
+            : item.ar[0].name + '/' + item.ar[1].name
+        "
+        :albumName="item.al.name"
+        @play-this-song="$emit('play-this-song', item.id)"
+      ></MusicItemCard>
     </ol>
   </div>
 </template>
@@ -25,24 +29,20 @@ export default {
       hotData: null,
     };
   },
-  props:['currentSongId', "playing"],
-  components:{
+  props: ["currentSongId", "playing"],
+  components: {
     MusicItemCard,
   },
   created() {
-    this.axios
-      .get("/playlist/detail?id=3778678")
-      .then((res) => {
-        this.hotData = res.data.playlist.tracks.slice(0, 20);
-      })
-     
-      ;
+    this.axios.get("/playlist/detail?id=3778678").then((res) => {
+      this.hotData = res.data.playlist.tracks.slice(0, 20);
+    });
   },
 };
 </script>
 
 <style lang="less" scoped>
-.homeHot{
+.homeHot {
   margin-bottom: 60px;
 }
 </style>

@@ -11,7 +11,11 @@
       ></EditorRecommendCard>
     </ul>
     <span class="title">最新音乐</span>
-    <ul class="latestMusic">
+    <ul
+      class="latestMusic"
+      v-if="latestMusicData"
+      @click="$emit('change-song-list', latestMusicData)"
+    >
       <MusicItemCard
         v-for="item in latestMusicData"
         :key="item.id"
@@ -73,8 +77,8 @@ export default {
 <style lang="less" scoped>
 .homeRecommend {
   margin-bottom: 60px;
-  background: #FCFCFD;
-  
+  background: #fcfcfd;
+
   .headerImg {
     width: 100%;
     height: 60px;
@@ -89,7 +93,7 @@ export default {
     box-sizing: border-box;
     position: relative;
     &::before {
-      content:'';
+      content: "";
       position: absolute;
       left: 0;
       top: 40%;

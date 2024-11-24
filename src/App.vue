@@ -32,10 +32,14 @@
       :currentSongId="currentSongId"
       :duration="duration"
       :currentTime="currentTime"
+      :songIdList="songIdList"
       @play-this-song="currentSongId = $event"
       @start-play-song="$refs.audioEle.play()"
       @pause-play-song="$refs.audioEle.pause()"
       @change-play-time="$refs.audioEle.currentTime = $event"
+      @change-song-list="changeSongList"
+      @open-songList="songListShow = true"
+      @change-currentSongId="currentSongId=$event"
     />
     <PlayBar
       v-if="currentSongId && !$route.meta.hidePlayBar"
@@ -43,12 +47,22 @@
       :playing="playing"
       @start-play-song="$refs.audioEle.play()"
       @pause-play-song="$refs.audioEle.pause()"
+      @open-songList="songListShow = true"
     ></PlayBar>
+    <SongListCard
+      v-if="songListShow"
+      :songList="songList"
+      :currentSongId="currentSongId"
+      :playing="playing"
+      @play-this-song="currentSongId = $event"
+      @close-songList="songListShow = false"
+    ></SongListCard>
   </div>
 </template>
 
 <script>
 import PlayBar from "@/components/PlayBar.vue";
+import SongListCard from "@/components/SongListCard.vue";
 export default {
   data() {
     return {
@@ -56,10 +70,26 @@ export default {
       currentTime: 0,
       currentSongId: null,
       playing: null,
+      songList: JSON.parse(localStorage.getItem('songList')) || [],
+      songIdList: JSON.parse(localStorage.getItem('songIdList')) || [],
+      songListShow: false,
     };
   },
   components: {
     PlayBar,
+    SongListCard,
+  },
+  methods: {
+    changeSongList(currentSongList) {
+      this.songList = currentSongList;
+      localStorage.setItem("songList", JSON.stringify(this.songList));
+    },
+  },
+  watch: {
+    songList() {
+      this.songIdList = this.songList.map((item) => item.id);
+      localStorage.setItem("songIdList", JSON.stringify(this.songIdList));
+    },
   },
 };
 </script>
